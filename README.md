@@ -11,7 +11,7 @@ Network Monitor: https://monitor.jungletestnet.io/
 https://github.com/EOS-Jungle-Testnet/Node-Auto-installation  
 
 
-For start Jungles2.0 node you need install EOSIO software. You can compile from sources or install from precompiled binaries:  
+To start a Jungle 2 node you need install EOSIO software. You can compile from sources or install from precompiled binaries:  
 
 # 1. Installing EOSIO  
 ---------------------------------------------------  
@@ -34,7 +34,7 @@ git submodule update --init --recursive
 ./eosio_install.sh
 ```  
 
-B. Lets copy binaries to keep old versions and make sym link to latest:  
+B. Copy binaries to keep old versions and make sym link to latest:  
 
 ```
 mkdir /opt/bin
@@ -45,20 +45,20 @@ cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.4.4/
 ln -sf /opt/bin/v1.4.4 /opt/bin/bin
 ```
 
-So /opt/bin/bin will be point to latest binaries  
+So /opt/bin/bin will point to latest binaries  
 
 
 # 1.2 EOSIO - installing from precompiled binaries  
 
-A. Download package for your OS from EOSIO git repo for lasr released version:  
+A. Download the latest version of EOSIO for your OS from:  
 https://github.com/EOSIO/eos/releases/tag/v1.4.4   
-As example for ubuntu 18.04 you need to doewnload deb package eosio_1.4.4-1-ubuntu-18.04_amd64.deb  
+For example, for ubuntu 18.04 you need to download deb package eosio_1.4.4-1-ubuntu-18.04_amd64.deb  
 To install it you can use apt:  
 ```
 apt install ./eosio_1.4.4-1-ubuntu-18.04_amd64.deb
 ```
 It will download all dependencies and install EOSIO to /usr/opt/eosio/1.4.4. 
-B. Lets copy binaries to keep old versions and make sym link to latest:  
+B. Copy binaries to keep old versions and make sym link to latest:  
 
 ```
  mkdir /opt/bin
@@ -112,7 +112,7 @@ To upgrade precompiled installation pleasse folow the same steps as in 1.2 (Inst
 
 ```
 
-- In case you use different data-dir folders -> edit all paths in files cleos.sh, start.sh, stop.sh, config.ini, Wallet/start_wallet.sh, Wallet/stop_wallet.sh  
+- In case you use a different data-dir folders -> edit all paths in files cleos.sh, start.sh, stop.sh, config.ini, Wallet/start_wallet.sh, Wallet/stop_wallet.sh  
 
 - Choose your producer name (12 symbols length only,  a-z 1-5 alowed only) and create own EOS key pair  
   you can create key pair using cleos command  
