@@ -1,7 +1,7 @@
 # Welcome to the EOS Jungle2.0 Testnet [manual node installation]  
 
 Chain ID: e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473  
-Based on tag: v1.4.4  
+Based on tag: v1.5.0-rc1  
 
 Please join out Jungle testnet <a target="_blank" href="https://t.me/jungletestnet">Telegram channel</a>  
 Network Monitor: https://monitor.jungletestnet.io/  
@@ -27,7 +27,7 @@ cd /opt/EOSIO
 git clone https://github.com/eosio/eos --recursive    
 cd eos  
 
-git checkout v1.4.4  
+git checkout v1.5.0-rc1  
 git submodule update --init --recursive   
 
 ./eosio_build.sh -s EOS
@@ -38,11 +38,11 @@ B. Copy binaries to keep old versions and make sym link to latest:
 
 ```
 mkdir /opt/bin
-mkdir /opt/bin/v1.4.4
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.4.4/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.4.4/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.4.4/
-ln -sf /opt/bin/v1.4.4 /opt/bin/bin
+mkdir /opt/bin/v1.5.0-rc1
+cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.5.0-rc1/
+cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.5.0-rc1/
+cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.5.0-rc1/
+ln -sf /opt/bin/v1.5.0-rc1 /opt/bin/bin
 ```
 
 So /opt/bin/bin will point to latest binaries  
@@ -81,7 +81,7 @@ cd /opt/EOSIO/eos
 git checkout -f
 git branch -f
 git pull
-git checkout v1.4.4  
+git checkout v1.5.0-rc1   
 git submodule update --init --recursive   
 
 
@@ -89,11 +89,11 @@ git submodule update --init --recursive
 ./eosio_uninstall.sh
 ./eosio_install.sh
 
-mkdir /opt/bin/v1.4.4
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.4.4/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.4.4/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.4.4/
-ln -sf /opt/bin/v1.4.4 /opt/bin/bin
+mkdir /opt/bin/v1.5.0-rc1
+cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.5.0-rc1/
+cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.5.0-rc1/
+cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.5.0-rc1/
+ln -sf /opt/bin/v1.5.0-rc1 /opt/bin/bin
 ```  
 
 
