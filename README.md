@@ -219,7 +219,7 @@ List staked/delegated
 ./cleos.sh system listbw <account>   
 ```
  
-
+# Jungle2 History nodes
 Full history node (filter-on = *):  History Nodes:  
 http://junglehistory.cryptolions.io:18888  
 https://junglehistory.cryptolions.io:443 
