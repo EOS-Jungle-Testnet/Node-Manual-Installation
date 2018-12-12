@@ -220,8 +220,13 @@ List staked/delegated
 ```
  
 
-Full history node (filter-on = *):  History Nodes:
--- in progress --
+Full history node (filter-on = *):  History Nodes:  
+http://junglehistory.cryptolions.io:18888  
+https://junglehistory.cryptolions.io:443 
+  
+Mongo History:  
+http://junglehistory.cryptolions.io  
+https://junglehistory.cryptolions.io:4433  
 
 
 
