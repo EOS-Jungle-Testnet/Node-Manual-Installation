@@ -126,7 +126,8 @@ To upgrade precompiled installation pleasse folow the same steps as in 1.2 (Inst
   - server address: p2p-server-address = ENRT_YOUR_NODE_EXTERNAL_IP_ADDRESS:9876  
 
   - if BP: your producer name: producer-name = YOUR_BP_NAME  
-  - if BP: add producer keypair for signing blocks (this pub key should be used in regproducer action): private-key = ["YOUR_PUBKEY","YOUR_PRIVKEY"]  
+  - if BP: add producer keypair for signing blocks (this pub key should be used in regproducer action):  
+  private-key = YOUR_PUB_KEY_HERE=KEY:YOUR_PRIV_KEY_HERE  
   - replace p2p-peer-address list with fresh generated on monitor site: http://monitor.jungletestnet.io/#p2p  
   - Check chain-state-db-size-mb value in config, it should be not bigger than you have RAM:  
     chain-state-db-size-mb = 16384  
