@@ -224,7 +224,6 @@ List staked/delegated
 Full history node (filter-on = *):  History Nodes:  
 http://junglehistory.cryptolions.io:18888  
 https://junglehistory.cryptolions.io:443 
-https://jungle.eosphere.io  
   
 Mongo History:  
 http://junglehistory.cryptolions.io  
