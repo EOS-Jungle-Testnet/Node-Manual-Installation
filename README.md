@@ -27,7 +27,7 @@ cd /opt/EOSIO
 git clone https://github.com/eosio/eos --recursive    
 cd eos  
 
-git checkout v1.6.2  
+git checkout v1.7.0-rc2  
 git submodule update --init --recursive   
 
 ./eosio_build.sh -s EOS
@@ -38,11 +38,11 @@ B. Copy binaries to keep old versions and make sym link to latest:
 
 ```
 mkdir /opt/bin
-mkdir /opt/bin/v1.6.2
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.6.2/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.6.2/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.6.2/
-ln -sf /opt/bin/v1.6.2 /opt/bin/bin
+mkdir /opt/bin/v1.7.0-rc2
+cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.7.0-rc2/
+cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.7.0-rc2/
+cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.7.0-rc2/
+ln -sf /opt/bin/v1.7.0-rc2 /opt/bin/bin
 ```
 
 So /opt/bin/bin will point to latest binaries  
@@ -51,22 +51,22 @@ So /opt/bin/bin will point to latest binaries
 # 1.2 EOSIO - installing from precompiled binaries  
 
 A. Download the latest version of EOSIO for your OS from:  
-https://github.com/EOSIO/eos/releases/tag/v1.6.2   
-For example, for ubuntu 18.04 you need to download deb package eosio_1.5.0-1-ubuntu-18.04_amd64.deb  
+https://github.com/EOSIO/eos/releases/tag/v1.7.0-rc2   
+For example, for ubuntu 18.04 you need to download deb package eosio_1.7.0-rc2-ubuntu-18.04_amd64.deb  
 To install it you can use apt:  
 ```
-apt install ./eosio_1.5.0-1-ubuntu-18.04_amd64.deb
+apt install ./eosio_1.7.0-rc2-ubuntu-18.04_amd64.deb
 ```
-It will download all dependencies and install EOSIO to /usr/opt/eosio/1.6.2 
+It will download all dependencies and install EOSIO to /usr/opt/eosio/v1.7.0-rc2 
 B. Copy binaries to keep old versions and make sym link to latest:  
 
 ```
  mkdir /opt/bin
- mkdir /opt/bin/v1.6.2
- cp /usr/opt/eosio/1.6.2/bin/nodeos /opt/bin/v1.6.2/
- cp /usr/opt/eosio/1.6.2/bin/cleos /opt/bin/v1.6.2/
- cp /usr/opt/eosio/1.6.2/bin/keosd /opt/bin/v1.6.2/
- ln -sf /usr/opt/eosio/1.6.2/bin /opt/bin/bin
+ mkdir /opt/bin/v1.7.0-rc2
+ cp /usr/opt/eosio/v1.7.0-rc2/bin/nodeos /opt/bin/v1.7.0-rc2/
+ cp /usr/opt/eosio/v1.7.0-rc2/bin/cleos /opt/bin/v1.7.0-rc2/
+ cp /usr/opt/eosio/v1.7.0-rc2/bin/keosd /opt/bin/v1.7.0-rc2/
+ ln -sf /usr/opt/eosio/v1.7.0-rc2/bin /opt/bin/bin
 ```
 
 So /opt/bin/bin will be point to latest binaries  
@@ -81,7 +81,7 @@ cd /opt/EOSIO/eos
 git checkout -f
 git branch -f
 git pull
-git checkout v1.6.2   
+git checkout v1.7.0-rc2   
 git submodule update --init --recursive   
 
 
@@ -89,11 +89,11 @@ git submodule update --init --recursive
 ./eosio_uninstall.sh
 ./eosio_install.sh
 
-mkdir /opt/bin/v1.6.2
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.6.2/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.6.2/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.6.2/
-ln -sf /opt/bin/v1.6.2 /opt/bin/bin
+mkdir /opt/bin/v1.7.0-rc2
+cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.7.0-rc2/
+cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.7.0-rc2/
+cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.7.0-rc2/
+ln -sf /opt/bin/v1.7.0-rc2 /opt/bin/bin
 ```  
 
 
