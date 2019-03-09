@@ -221,14 +221,16 @@ List staked/delegated
 ```
  
 # Jungle2 History nodes
-Light history node (filter-on = *):  History Nodes:  
+**Light history node (filter-on = *):**  
 http://junglehistory.cryptolions.io:18888  
 https://junglehistory.cryptolions.io:443 
   
-Mongo History:  
+**Mongo History:**  
 http://junglehistory.cryptolions.io  
 https://junglehistory.cryptolions.io:4433  
 
+**Hyperion History**  
+`https://jungle.eosrio.io/v2/history`  
 
 
 by: <a target="_blank" href="http://CryptoLions.io">CryptoLions.io</a>  
