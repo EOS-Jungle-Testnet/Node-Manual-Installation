@@ -230,7 +230,7 @@ http://junglehistory.cryptolions.io
 https://junglehistory.cryptolions.io:4433  
 
 **Hyperion History**  
-`https://jungle.eosrio.io/v2/history`  
+https://jungle.eosrio.io/v2/history  
 
 
 by: <a target="_blank" href="http://CryptoLions.io">CryptoLions.io</a>  
