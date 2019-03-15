@@ -179,7 +179,49 @@ Enter your private key
     After registration is complete - personal intallation script will be created for you. Skip this step in case of manual installation.  
 
 ==============================================================================================  
-# 4. Usefull Information  
+
+# 4.1 Restore/Start from Backup
+   Download latest block and state archive for your OS from http://backup.jungletestnet.io/
+   
+   ```
+   wget  http://backup.jungletestnet.io/ubuntu18/blocks-latest.tar.gz
+   wget http://backup.jungletestnet.io/ubuntu18/state-latest.tar.gz
+   ```
+   After downloaded extract their
+   ```
+   tar xzvf blocks-latest.tar.gz -C .
+   tar xzvf state-latest.tar.gz -C .
+   ```
+   You got two folders block and state.  
+   Ater that go to **NODE** folder, and remove files from folder blocks and state
+   ```
+   cd /opt/Jungle2Testnet
+   rm blocks/*
+   rm state/*
+   ```
+   After that go where you extracted archive and move file from folder 
+   ```
+   mv ~/blocks/* /opt/Jungle2Testnet/blocks/
+   mv ~/state/* /opt/Jungle2Testnet/state/
+   ```
+   After files moved start your NODE
+   ```
+   ./start.sh
+   ```
+# 4.2 Restore/Start from Snapshots
+   Download latest snapshot from http://backup.jungletestnet.io/snapshots/ to snapshots folder in your **NODE** directory
+   ```
+   cd /opt/Jungle2Testnet/snapshots/
+   wget http://backup.jungletestnet.io/snapshots/snapshot-011b33ab0ada8f802c6a86cc22bd908fdde7e315e5e296a85d19bea2f72c4272.bin
+   ```
+   after it downloaded run `start.sh` script with option `--snapshot` and snapshot file path
+   ```
+   cd /opt/Jungle2Testnet
+   ./start.sh --snapshot /opt/Jungle2Testnet/snapshots/snapshot-011b33ab0ada8f802c6a86cc22bd908fdde7e315e5e296a85d19bea2f72c4272.bin
+   ```
+ ---
+
+# 5. Usefull Information  
   
 # Jungle 2.0 Faucet - get free EOS Jungle tokens:  
   http://monitor.jungletestnet.io/#faucet  
@@ -237,7 +279,7 @@ ws://jungle.eosdac.io:8080
 
 --------------  
 
-## Backups
+# Backups
 ### Full(blocks and states):
   * [Ubuntu 18](http://backup.jungletestnet.io/ubuntu18/)  
   * [Ubuntu 16](http://backup.jungletestnet.io/ubuntu16/)
