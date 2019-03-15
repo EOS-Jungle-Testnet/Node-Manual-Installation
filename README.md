@@ -212,12 +212,12 @@ Enter your private key
    Download latest snapshot from http://backup.jungletestnet.io/snapshots/ to snapshots folder in your **NODE** directory
    ```
    cd /opt/Jungle2Testnet/snapshots/
-   wget http://backup.jungletestnet.io/snapshots/snapshot-011b33ab0ada8f802c6a86cc22bd908fdde7e315e5e296a85d19bea2f72c4272.bin
+   wget http://backup.jungletestnet.io/snapshots/latest-snapshot.bin
    ```
    after it downloaded run `start.sh` script with option `--snapshot` and snapshot file path
    ```
    cd /opt/Jungle2Testnet
-   ./start.sh --snapshot /opt/Jungle2Testnet/snapshots/snapshot-011b33ab0ada8f802c6a86cc22bd908fdde7e315e5e296a85d19bea2f72c4272.bin
+   ./start.sh --snapshot /opt/Jungle2Testnet/snapshots/latest-snapshot.bin
    ```
  ---
 
