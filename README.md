@@ -1,7 +1,7 @@
 # Welcome to the EOS Jungle2.0 Testnet [manual node installation]  
 
 Chain ID: e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473  
-Based on tag: v1.7.0 
+Based on tag: v1.7.1 
 
 Please join out Jungle testnet <a target="_blank" href="https://t.me/jungletestnet">Telegram channel</a>  
 Network Monitor: https://monitor.jungletestnet.io/  
@@ -27,7 +27,7 @@ cd /opt/EOSIO
 git clone https://github.com/eosio/eos --recursive    
 cd eos  
 
-git checkout v1.7.0  
+git checkout v1.7.1  
 git submodule update --init --recursive   
 
 ./eosio_build.sh -s EOS
@@ -38,11 +38,11 @@ B. Copy binaries to keep old versions and make sym link to latest:
 
 ```
 mkdir /opt/bin
-mkdir /opt/bin/v1.7.0
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.7.0/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.7.0/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.7.0/
-ln -sf /opt/bin/v1.7.0 /opt/bin/bin
+mkdir /opt/bin/v1.7.1
+cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.7.1/
+cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.7.1/
+cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.7.1/
+ln -sf /opt/bin/v1.7.1 /opt/bin/bin
 ```
 
 So /opt/bin/bin will point to latest binaries  
@@ -51,7 +51,7 @@ So /opt/bin/bin will point to latest binaries
 # 1.2 EOSIO - installing from precompiled binaries  
 
 A. Download the latest version of EOSIO for your OS from:  
-https://github.com/EOSIO/eos/releases/tag/v1.7.0   
+https://github.com/EOSIO/eos/releases/tag/v1.7.1   
 For example, for ubuntu 18.04 you need to download deb package eosio_1.7.0-1-ubuntu-18.04_amd64.deb    
 To install it you can use apt:  
 ```
@@ -62,11 +62,11 @@ B. Copy binaries to keep old versions and make sym link to latest:
 
 ```
  mkdir /opt/bin
- mkdir /opt/bin/v1.7.0
- cp /usr/opt/eosio/v1.7.0/bin/nodeos /opt/bin/v1.7.0/
- cp /usr/opt/eosio/v1.7.0/bin/cleos /opt/bin/v1.7.0/
- cp /usr/opt/eosio/v1.7.0/bin/keosd /opt/bin/v1.7.0/
- ln -sf /usr/opt/eosio/v1.7.0/bin /opt/bin/bin
+ mkdir /opt/bin/v1.7.1
+ cp /usr/opt/eosio/v1.7.1/bin/nodeos /opt/bin/v1.7.1/
+ cp /usr/opt/eosio/v1.7.1/bin/cleos /opt/bin/v1.7.1/
+ cp /usr/opt/eosio/v1.7.1/bin/keosd /opt/bin/v1.7.1/
+ ln -sf /usr/opt/eosio/v1.7.1/bin /opt/bin/bin
 ```
 
 So /opt/bin/bin will be point to latest binaries  
@@ -81,7 +81,7 @@ cd /opt/EOSIO/eos
 git checkout -f
 git branch -f
 git pull
-git checkout v1.7.0   
+git checkout v1.7.1   
 git submodule update --init --recursive   
 
 
@@ -89,11 +89,11 @@ git submodule update --init --recursive
 ./eosio_uninstall.sh
 ./eosio_install.sh
 
-mkdir /opt/bin/v1.7.0
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.7.0/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.7.0/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.7.0/
-ln -sf /opt/bin/v1.7.0 /opt/bin/bin
+mkdir /opt/bin/v1.7.1
+cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.7.1/
+cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.7.1/
+cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.7.1/
+ln -sf /opt/bin/v1.7.1 /opt/bin/bin
 ```  
 
 
@@ -265,7 +265,8 @@ List staked/delegated
 # Jungle2 History nodes
 **Light history node (filter-on = *):**  
 http://junglehistory.cryptolions.io:18888  
-https://junglehistory.cryptolions.io:443 
+https://junglehistory.cryptolions.io:443
+https://jungle.eosmetal.io:443
   
 **Mongo History:**  
 http://junglehistory.cryptolions.io  
