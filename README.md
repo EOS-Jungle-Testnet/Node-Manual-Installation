@@ -265,7 +265,7 @@ List staked/delegated
 # Jungle2 History nodes
 **Light history node (filter-on = *):**  
 http://junglehistory.cryptolions.io:18888  
-https://junglehistory.cryptolions.io:443
+https://junglehistory.cryptolions.io:443  
 https://jungle.eosmetal.io:443
   
 **Mongo History:**  
