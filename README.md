@@ -30,8 +30,8 @@ cd eos
 git checkout v1.7.2  
 git submodule update --init --recursive   
 
-./eosio_build.sh -s EOS
-./eosio_install.sh
+./scripts/eosio_build.sh -s EOS
+./scripts/eosio_install.sh
 ```  
 
 B. Copy binaries to keep old versions and make sym link to latest:  
@@ -85,9 +85,9 @@ git checkout v1.7.1
 git submodule update --init --recursive   
 
 
-./eosio_build.sh -s EOS
-./eosio_uninstall.sh
-./eosio_install.sh
+./scripts/eosio_build.sh -s EOS
+./scripts/eosio_uninstall.sh
+./scripts/eosio_install.sh
 
 mkdir /opt/bin/v1.7.2
 cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.7.2/
