@@ -52,10 +52,10 @@ So /opt/bin/bin will point to latest binaries
 
 A. Download the latest version of EOSIO for your OS from:  
 https://github.com/EOSIO/eos/releases/tag/v1.7.3   
-For example, for ubuntu 18.04 you need to download deb package eosio_1.7.2-1-ubuntu-18.04_amd64.deb      
+For example, for ubuntu 18.04 you need to download deb package eosio_1.7.3-1-ubuntu-18.04_amd64.deb        
 To install it you can use apt:  
 ```
-apt install ./eosio_1.7.2-1-ubuntu-18.04_amd64.deb   
+apt install ./eosio_1.7.3-1-ubuntu-18.04_amd64.deb   
 ```
 It will download all dependencies and install EOSIO to /usr/opt/eosio/v1.7.3 
 B. Copy binaries to keep old versions and make sym link to latest:  
