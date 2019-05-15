@@ -1,7 +1,7 @@
 # Welcome to the EOS Jungle2.0 Testnet [manual node installation]  
 
 Chain ID: e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473  
-Based on tag: v1.7.3 
+Based on tag: v1.8.0-rc2 
 
 Please join out Jungle testnet <a target="_blank" href="https://t.me/jungletestnet">Telegram channel</a>  
 Network Monitor: https://monitor.jungletestnet.io/  
@@ -27,7 +27,7 @@ cd /opt/EOSIO
 git clone https://github.com/eosio/eos --recursive    
 cd eos  
 
-git checkout v1.7.3  
+git checkout v1.8.0-rc2  
 git submodule update --init --recursive   
 
 ./scripts/eosio_build.sh -s EOS -P -f
@@ -38,11 +38,11 @@ B. Copy binaries to keep old versions and make sym link to latest:
 
 ```
 mkdir /opt/bin
-mkdir /opt/bin/v1.7.3
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.7.3/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.7.3/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.7.3/
-ln -sf /opt/bin/v1.7.3 /opt/bin/bin
+mkdir /opt/bin/v1.8.0-rc2
+cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.8.0-rc2/
+cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.8.0-rc2/
+cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.8.0-rc2/
+ln -sf /opt/bin/v1.8.0-rc2 /opt/bin/bin
 ```
 
 So /opt/bin/bin will point to latest binaries  
@@ -81,7 +81,7 @@ cd /opt/EOSIO/eos
 git checkout -f
 git branch -f
 git pull
-git checkout v1.7.3   
+git checkout v1.8.0-rc2   
 git submodule update --init --recursive   
 
 
@@ -89,15 +89,28 @@ git submodule update --init --recursive
 ./scripts/eosio_uninstall.sh
 ./scripts/eosio_install.sh
 
-mkdir /opt/bin/v1.7.3
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.7.3/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.7.3/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.7.3/
-ln -sf /opt/bin/v1.7.3 /opt/bin/bin
+mkdir /opt/bin/v1.8.0-rc2
+cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.8.0-rc2/
+cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.8.0-rc2/
+cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.8.0-rc2/
+ln -sf /opt/bin/v1.8.0-rc2 /opt/bin/bin
 ```  
+! Warning ! For 1.8.0-rc2:
+With this release, version 1.70 of Boost is also supported and is the preferred version that the build script will pin to if the -P flag is passed in. While Boost version 1.67 is still supported, the minimum version of Boost supported in EOSIO is expected to increase to 1.70 in the future. Since this release requires a replay from genesis for everyone upgrading from v1.7.x and earlier, users should consider forcing their EOSIO build to use Boost 1.70 by passing in the -P -f flags to the build script. Doing so will make it less likely to require portable snapshots in order to upgrade an existing chain state database to work with a future version of EOSIO.
 
+# 2.2 Upgrading from v1.8.0-rc1
+Upgrading from v1.8.0-rc1 to v1.8.0-rc2 for a nodeos configured to run with plugins that handle history requires a replay from genesis similar to the upgrade from v1.7.x to v1.8.0-rc2 (see the upgrade guide).
 
-# 2.2 Update binaries  
+If nodeos is not configured with any history-related plugins, it is possible to upgrade from v1.8.0-rc1 to v1.8.0-rc2 without doing a replay from genesis. The snapshots generated and accepted by both versions are identical. So the operator could:
+
+- Launch nodeos v1.8.0-rc1 in irreversible mode and with the `producer_api_plugin` enabled by passing the `--read-mode=irreversible` `--plugin=eosio::producer_api_plugin` command-line options. (Note that producers cannot be configured when launching nodeos in irreversible mode.)  
+- Create a snapshot of the last irreversible block by calling the `create_snapshot` RPC (for example by using the command `curl -X POST http:/127.0.0.1:8888/v1/producer/create_snapshot -d '{}' | jq .` ). Record the path to the generated snapshot file in `snapshot_name` field of the returned JSON object.  
+- Shut down nodeos and delete the `blocks/reversible` and `state` sub-directories within the data directory.  
+- Launch nodeos v1.8.0-rc2 from the generated snapshot using `--snapshot` command line option.  
+
+<a href="https://github.com/EOSIO/eos/releases/tag/v1.8.0-rc2">release notes</a>
+
+# 2.3 Update binaries  
 To upgrade precompiled installation pleasse folow the same steps as in 1.2 (Installation from precompiled)  
 
 ------------------------------------------------------------------  
