@@ -30,7 +30,7 @@ cd eos
 git checkout v1.7.3  
 git submodule update --init --recursive   
 
-./scripts/eosio_build.sh -s EOS
+./scripts/eosio_build.sh -s EOS -P -f
 ./scripts/eosio_install.sh
 ```  
 
@@ -85,7 +85,7 @@ git checkout v1.7.3
 git submodule update --init --recursive   
 
 
-./scripts/eosio_build.sh -s EOS
+./scripts/eosio_build.sh -s EOS -P -f
 ./scripts/eosio_uninstall.sh
 ./scripts/eosio_install.sh
 
