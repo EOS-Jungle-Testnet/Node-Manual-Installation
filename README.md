@@ -276,20 +276,19 @@ List staked/delegated
 ```
  
 # Jungle2 History nodes
-**Light history node (filter-on = *):**  
-http://junglehistory.cryptolions.io:18888  
-https://junglehistory.cryptolions.io:443  
-https://jungle.eosmetal.io:443
-  
-**Mongo History:**  
-http://junglehistory.cryptolions.io  
-https://junglehistory.cryptolions.io:4433  
-
 **Hyperion History**  
+https://junglehistory.cryptolions.io/v2/docs/index.html    
 https://jungle.hyperion.eosrio.io/v2/docs/index.html  
+https://jungle.eosusa.news/v2/docs/    
+https://api.jungle.hyperion.greeneosio.com/v2/docs/    
 
 **State History endpoint**  
-ws://jungle.eosdac.io:8080
+ws://jungle.eosdac.io:8084
+
+**Block Explorers**   
+https://jungle.bloks.io/    
+https://jungle.eosweb.net/    
+https://jungle.eosq.app    
 
 --------------  
 
