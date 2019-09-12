@@ -57,7 +57,7 @@ To install it you can use apt:
 ```
 apt install ./eosio_1.8.3-1-ubuntu-18.04_amd64.deb   
 ```
-It will download all dependencies and install EOSIO to /usr/opt/eosio/v1.8.3 
+It will download all dependencies and install EOSIO to /usr/opt/eosio/v1.8.3  
 B. Copy binaries to keep old versions and make sym link to latest:  
 
 ```
