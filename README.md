@@ -1,7 +1,7 @@
 # Welcome to the EOS Jungle2.0 Testnet [manual node installation]  
 
 Chain ID: e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473  
-Based on tag: v1.8.3 
+Based on tag: v1.8.4 
 
 Please join out Jungle testnet <a target="_blank" href="https://t.me/jungletestnet">Telegram channel</a>  
 Network Monitor: https://monitor.jungletestnet.io/  
@@ -27,7 +27,7 @@ cd /opt/EOSIO
 git clone https://github.com/eosio/eos --recursive    
 cd eos  
 
-git checkout v1.8.3  
+git checkout v1.8.4  
 git submodule update --init --recursive   
 
 ./scripts/eosio_build.sh -P -f
@@ -38,11 +38,11 @@ B. Copy binaries to keep old versions and make sym link to latest:
 
 ```
 mkdir /opt/bin
-mkdir /opt/bin/v1.8.3
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.8.3/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.8.3/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.8.3/
-ln -sf /opt/bin/v1.8.3 /opt/bin/bin
+mkdir /opt/bin/v1.8.4
+cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.8.4/
+cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.8.4/
+cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.8.4/
+ln -sf /opt/bin/v1.8.4 /opt/bin/bin
 ```
 
 So /opt/bin/bin will point to latest binaries  
@@ -51,22 +51,22 @@ So /opt/bin/bin will point to latest binaries
 # 1.2 EOSIO - installing from precompiled binaries  
 
 A. Download the latest version of EOSIO for your OS from:  
-https://github.com/EOSIO/eos/releases/tag/v1.8.3   
-For example, for ubuntu 18.04 you need to download deb eosio_1.8.3-1-ubuntu-18.04_amd64.deb              
+https://github.com/EOSIO/eos/releases/tag/v1.8.4   
+For example, for ubuntu 18.04 you need to download deb eosio_1.8.4-1-ubuntu-18.04_amd64.deb              
 To install it you can use apt:  
 ```
-apt install ./eosio_1.8.3-1-ubuntu-18.04_amd64.deb   
+apt install ./eosio_1.8.4-1-ubuntu-18.04_amd64.deb   
 ```
-It will download all dependencies and install EOSIO to /usr/opt/eosio/v1.8.3  
+It will download all dependencies and install EOSIO to /usr/opt/eosio/v1.8.4  
 B. Copy binaries to keep old versions and make sym link to latest:  
 
 ```
  mkdir /opt/bin
- mkdir /opt/bin/v1.8.3
- cp /usr/opt/eosio/v1.8.3/bin/nodeos /opt/bin/v1.8.3/
- cp /usr/opt/eosio/v1.8.3/bin/cleos /opt/bin/v1.8.3/
- cp /usr/opt/eosio/v1.8.3/bin/keosd /opt/bin/v1.8.3/
- ln -sf /usr/opt/eosio/v1.8.3/bin /opt/bin/bin
+ mkdir /opt/bin/v1.8.4
+ cp /usr/opt/eosio/v1.8.4/bin/nodeos /opt/bin/v1.8.4/
+ cp /usr/opt/eosio/v1.8.4/bin/cleos /opt/bin/v1.8.4/
+ cp /usr/opt/eosio/v1.8.4/bin/keosd /opt/bin/v1.8.4/
+ ln -sf /usr/opt/eosio/v1.8.4/bin /opt/bin/bin
 ```
 
 So /opt/bin/bin will be point to latest binaries  
@@ -81,7 +81,7 @@ cd /opt/EOSIO/eos
 git checkout -f
 git branch -f
 git pull
-git checkout v1.8.3   
+git checkout v1.8.4   
 git submodule update --init --recursive   
 
 
@@ -89,11 +89,11 @@ git submodule update --init --recursive
 ./scripts/eosio_uninstall.sh
 ./scripts/eosio_install.sh
 
-mkdir /opt/bin/v1.8.3
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.8.3/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.8.3/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.8.3/
-ln -sf /opt/bin/v1.8.3 /opt/bin/bin
+mkdir /opt/bin/v1.8.4
+cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v1.8.4/
+cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v1.8.4/
+cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v1.8.4/
+ln -sf /opt/bin/v1.8.4 /opt/bin/bin
 ```  
 ! Warning ! For 1.8.0:
 With this release, version 1.70 of Boost is also supported and is the preferred version that the build script will pin to if the -P flag is passed in. While Boost version 1.67 is still supported, the minimum version of Boost supported in EOSIO is expected to increase to 1.70 in the future. Since this release requires a replay from genesis for everyone upgrading from v1.7.x and earlier, users should consider forcing their EOSIO build to use Boost 1.70 by passing in the -P -f flags to the build script. Doing so will make it less likely to require portable snapshots in order to upgrade an existing chain state database to work with a future version of EOSIO.
