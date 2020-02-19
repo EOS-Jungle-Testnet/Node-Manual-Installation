@@ -1,7 +1,7 @@
-# Welcome to the EOS Jungle2.0 Testnet [manual node installation]  
+# Welcome to the EOS Jungle3.0 Testnet [manual node installation]  
 
 Chain ID: e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473  
-Based on tag: v2.0.2  
+Based on tag: v2.0.3  
 
 Please join out Jungle testnet <a target="_blank" href="https://t.me/jungletestnet">Telegram channel</a>  
 Network Monitor: https://monitor.jungletestnet.io/  
@@ -11,7 +11,7 @@ Network Monitor: https://monitor.jungletestnet.io/
 https://github.com/EOS-Jungle-Testnet/Node-Auto-installation  
 
 
-To start a Jungle 2 node you need install EOSIO software. You can compile from sources or install from precompiled binaries:  
+To start a Jungle 3 node you need install EOSIO software. You can compile from sources or install from precompiled binaries:  
 
 # 1. Installing EOSIO  
 ---------------------------------------------------  
@@ -27,7 +27,7 @@ cd /opt/EOSIO
 git clone https://github.com/eosio/eos --recursive    
 cd eos  
 
-git checkout v2.0.2  
+git checkout v2.0.3  
 git submodule update --init --recursive   
 
 ./scripts/eosio_build.sh -P -y
@@ -38,11 +38,11 @@ B. Copy binaries to keep old versions and make sym link to latest:
 
 ```
 mkdir /opt/bin
-mkdir /opt/bin/v2.0.2
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v2.0.2/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v2.0.2/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v2.0.2/
-ln -sf /opt/bin/v2.0.2 /opt/bin/bin
+mkdir /opt/bin/v2.0.3
+cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v2.0.3/
+cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v2.0.3/
+cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v2.0.3/
+ln -sf /opt/bin/v2.0.3 /opt/bin/bin
 ```
 
 So /opt/bin/bin will point to latest binaries  
@@ -51,22 +51,22 @@ So /opt/bin/bin will point to latest binaries
 # 1.2 EOSIO - installing from precompiled binaries  
 
 A. Download the latest version of EOSIO for your OS from:  
-https://github.com/EOSIO/eos/releases/tag/v2.0.2   
-For example, for ubuntu 18.04 you need to download deb eosio_2.0.2-1-ubuntu-18.04_amd64.deb              
+https://github.com/EOSIO/eos/releases/tag/v2.0.3   
+For example, for ubuntu 18.04 you need to download deb eosio_2.0.3-1-ubuntu-18.04_amd64.deb              
 To install it you can use apt:  
 ```
-apt install ./eosio_2.0.2-1-ubuntu-18.04_amd64.deb   
+apt install ./eosio_2.0.3-1-ubuntu-18.04_amd64.deb   
 ```
-It will download all dependencies and install EOSIO to /usr/opt/eosio/v2.0.1  
+It will download all dependencies and install EOSIO to /usr/opt/eosio/v2.0.3  
 B. Copy binaries to keep old versions and make sym link to latest:  
 
 ```
  mkdir /opt/bin
- mkdir /opt/bin/v2.0.2
- cp /usr/opt/eosio/v2.0.2/bin/nodeos /opt/bin/v2.0.2/
- cp /usr/opt/eosio/v2.0.2/bin/cleos /opt/bin/v2.0.2/
- cp /usr/opt/eosio/v2.0.2/bin/keosd /opt/bin/v2.0.2/
- ln -sf /usr/opt/eosio/v2.0.2/bin /opt/bin/bin
+ mkdir /opt/bin/v2.0.3
+ cp /usr/opt/eosio/v2.0.3/bin/nodeos /opt/bin/v2.0.3/
+ cp /usr/opt/eosio/v2.0.3/bin/cleos /opt/bin/v2.0.3/
+ cp /usr/opt/eosio/v2.0.3/bin/keosd /opt/bin/v2.0.3/
+ ln -sf /usr/opt/eosio/v3.0.2/bin /opt/bin/bin
 ```
 
 So /opt/bin/bin will be point to latest binaries  
@@ -81,7 +81,7 @@ cd /opt/EOSIO/eos
 git checkout -f
 git branch -f
 git pull
-git checkout v2.0.1   
+git checkout v2.0.3   
 git submodule update --init --recursive   
 
 
@@ -89,38 +89,24 @@ git submodule update --init --recursive
 ./scripts/eosio_uninstall.sh
 ./scripts/eosio_install.sh
 
-mkdir /opt/bin/v2.0.2
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v2.0.2/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v2.0.2/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v2.0.2/
-ln -sf /opt/bin/v2.0.2 /opt/bin/bin
+mkdir /opt/bin/v2.0.3
+cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v2.0.3/
+cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v2.0.3/
+cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v2.0.3/
+ln -sf /opt/bin/v2.0.3 /opt/bin/bin
 ```  
-! Warning ! For 1.8.0:
-With this release, version 1.70 of Boost is also supported and is the preferred version that the build script will pin to if the -P flag is passed in. While Boost version 1.67 is still supported, the minimum version of Boost supported in EOSIO is expected to increase to 1.70 in the future. Since this release requires a replay from genesis for everyone upgrading from v1.7.x and earlier, users should consider forcing their EOSIO build to use Boost 1.70 by passing in the -P -f flags to the build script. Doing so will make it less likely to require portable snapshots in order to upgrade an existing chain state database to work with a future version of EOSIO.
-
-# 2.2 Upgrading from v1.8.0-rc1
-Upgrading from v1.8.0-rc1 to v1.8.0-rc2 for a nodeos configured to run with plugins that handle history requires a replay from genesis similar to the upgrade from v1.7.x to v1.8.0-rc2 (see the upgrade guide).
-
-If nodeos is not configured with any history-related plugins, it is possible to upgrade from v1.8.0-rc1 to v1.8.0-rc2 without doing a replay from genesis. The snapshots generated and accepted by both versions are identical. So the operator could:
-
-- Launch nodeos v1.8.0-rc1 in irreversible mode and with the `producer_api_plugin` enabled by passing the `--read-mode=irreversible` `--plugin=eosio::producer_api_plugin` command-line options. (Note that producers cannot be configured when launching nodeos in irreversible mode.)  
-- Create a snapshot of the last irreversible block by calling the `create_snapshot` RPC (for example by using the command `curl -X POST http:/127.0.0.1:8888/v1/producer/create_snapshot -d '{}' | jq .` ). Record the path to the generated snapshot file in `snapshot_name` field of the returned JSON object.  
-- Shut down nodeos and delete the `blocks/reversible` and `state` sub-directories within the data directory.  
-- Launch nodeos v1.8.0-rc2 from the generated snapshot using `--snapshot` command line option.  
-
-<a href="https://github.com/EOSIO/eos/releases/tag/v1.8.0-rc2">release notes</a>
 
 # 2.3 Update binaries  
 To upgrade precompiled installation pleasse folow the same steps as in 1.2 (Installation from precompiled)  
 
 ------------------------------------------------------------------  
 
-# 3. Install Jungle2.0 Testnet node [manual]  
+# 3. Install Jungle3.0 Testnet node [manual]  
     Check our auto installer script: https://github.com/EOS-Jungle-Testnet/Node-Auto-installation  
 
 ```
-    mkdir /opt/Jungle2Testnet
-    cd /opt/Jungle2Testnet
+    mkdir /opt/Jungle3Testnet
+    cd /opt/Jungle3Testnet
     git clone https://github.com/EOS-Jungle-Testnet/Node-Manual-Installation.git ./
 
 ```
@@ -150,7 +136,7 @@ To upgrade precompiled installation pleasse folow the same steps as in 1.2 (Inst
 
 - Start wallet, run  
 ```
-cd /opt/Jungle2Testnet
+cd /opt/Jungle3Testnet
 ./Wallet/start_wallet.sh  
 ```
 
@@ -183,7 +169,7 @@ Enter your private key
 
 
 
-- Check if you can access you node using link http://you_server:8888/v1/chain/get_info (<a href="http://jungle2.cryptolions.io/v1/chain/get_info" target="_blank">Example</a>)  
+- Check if you can access you node using link http://you_server:8888/v1/chain/get_info (<a href="http://jungle3.cryptolions.io/v1/chain/get_info" target="_blank">Example</a>)  
 
 
 - If you would like to run a BP node you need register your node at Jungle2.0 Testnet monitor  
@@ -236,7 +222,7 @@ Enter your private key
 
 # 5. Usefull Information  
   
-# Jungle 2.0 Faucet - get free EOS Jungle tokens:  
+# Jungle 3.0 Faucet - get free EOS Jungle tokens:  
   http://monitor.jungletestnet.io/#faucet  
 
 # Other Tools/Examples  
@@ -275,20 +261,13 @@ List staked/delegated
 ./cleos.sh system listbw <account>   
 ```
  
-# Jungle2 History nodes
+# Jungle3 History nodes
 **Hyperion History**  
-https://junglehistory.cryptolions.io/v2/docs/index.html    
-https://jungle.hyperion.eosrio.io/v2/docs/index.html  
-https://jungle.eosusa.news/v2/docs/    
-https://api.jungle.hyperion.greeneosio.com/v2/docs/    
+   
 
 **State History endpoint**  
-ws://jungle.eosdac.io:8084
 
 **Block Explorers**   
-https://jungle.bloks.io/    
-https://jungle.eosweb.net/    
-https://jungle.eosq.app    
 
 --------------  
 
