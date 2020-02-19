@@ -1,6 +1,6 @@
 # Welcome to the EOS Jungle3.0 Testnet [manual node installation]  
 
-Chain ID: e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473  
+Chain ID: 2a02a0053e5a8cf73a56ba0fda11e4d92e0238a4a2aa74fccf46d5a910746840  
 Based on tag: v2.0.3  
 
 Please join out Jungle testnet <a target="_blank" href="https://t.me/jungletestnet">Telegram channel</a>  
