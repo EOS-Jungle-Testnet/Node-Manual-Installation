@@ -194,14 +194,14 @@ Enter your private key
    You got two folders block and state.  
    Ater that go to **NODE** folder, and remove files from folder blocks and state
    ```
-   cd /opt/Jungle2Testnet
+   cd /opt/Jungle3Testnet
    rm blocks/*
    rm state/*
    ```
    After that go where you extracted archive and move file from folder 
    ```
-   mv ~/blocks/* /opt/Jungle2Testnet/blocks/
-   mv ~/state/* /opt/Jungle2Testnet/state/
+   mv ~/blocks/* /opt/Jungle3Testnet/blocks/
+   mv ~/state/* /opt/Jungle3Testnet/state/
    ```
    After files moved start your NODE
    ```
@@ -210,27 +210,27 @@ Enter your private key
 # 4.2 Restore/Start from Snapshots
    Download latest snapshot from http://backup.cryptolions.io/Jungle/snapshots/ to snapshots folder in your **NODE** directory
    ```
-   cd /opt/Jungle2Testnet/snapshots/
+   cd /opt/Jungle3Testnet/snapshots/
    wget http://backup.cryptolions.io/Jungle/snapshots/latest-snapshot.bin
    ```
    after it downloaded run `start.sh` script with option `--snapshot` and snapshot file path
    ```
-   cd /opt/Jungle2Testnet
-   ./start.sh --snapshot /opt/Jungle2Testnet/snapshots/latest-snapshot.bin
+   cd /opt/Jungle3Testnet
+   ./start.sh --snapshot /opt/Jungle3Testnet/snapshots/latest-snapshot.bin
    ```
  ---
 
 # 5. Usefull Information  
   
 # Jungle 3.0 Faucet - get free EOS Jungle tokens:  
-  http://monitor.jungletestnet.io/#faucet  
+  http://monitor3.jungletestnet.io/#faucet  
 
 # Other Tools/Examples  
 - In scripts folder you can find scripts examples: how to register bp, stake, vote, claimrewards, etc  
 - Vote using monitor (prepare Cleos command or use scatter)  
 
 - Create account:  
-  http://monitor.jungletestnet.io/#account  
+  http://monitor3.jungletestnet.io/#account  
 
 
 - Cleos commands:  
