@@ -127,7 +127,7 @@ To upgrade precompiled installation pleasse folow the same steps as in 1.2 (Inst
   - if BP: your producer name: producer-name = YOUR_BP_NAME  
   - if BP: add producer keypair for signing blocks (this pub key should be used in regproducer action):  
   signature-provider = YOUR_PUB_KEY_HERE=KEY:YOUR_PRIV_KEY_HERE  
-  - replace p2p-peer-address list with fresh generated on monitor site: http://monitor333.jungletestnet.io/#p2p  
+  - replace p2p-peer-address list with fresh generated on monitor site: http://monitor3.jungletestnet.io/#p2p  
   - Check chain-state-db-size-mb value in config, it should be not bigger than you have RAM:  
     chain-state-db-size-mb = 16384  
   
