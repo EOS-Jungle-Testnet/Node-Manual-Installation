@@ -63,9 +63,9 @@ B. Copy binaries to keep old versions and make sym link to latest:
 ```
  mkdir /opt/bin
  mkdir /opt/bin/v2.0.3
- cp /usr/opt/eosio/v2.0.3/bin/nodeos /opt/bin/v2.0.3/
- cp /usr/opt/eosio/v2.0.3/bin/cleos /opt/bin/v2.0.3/
- cp /usr/opt/eosio/v2.0.3/bin/keosd /opt/bin/v2.0.3/
+ cp /usr/opt/eosio/2.0.3/bin/nodeos /opt/bin/v2.0.3/
+ cp /usr/opt/eosio/2.0.3/bin/cleos /opt/bin/v2.0.3/
+ cp /usr/opt/eosio/2.0.3/bin/keosd /opt/bin/v2.0.3/
  ln -sf /opt/bin/v2.0.3 /opt/bin/bin
 ```
 
