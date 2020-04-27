@@ -273,10 +273,10 @@ List staked/delegated
 
 # Backups
 ### Full(blocks and states):
-  * [Ubuntu 18](http://backup.jungletestnet.io/ubuntu18/)  
-  * [Ubuntu 16](http://backup.jungletestnet.io/ubuntu16/)
+  * [Ubuntu 18](http://backup.cryptolions.io/Jungle/ubuntu18/)  
+  * [Ubuntu 16](http://backup.cryptolions.io/Jungle/ubuntu16/)
 ### Snapshot:
-  * [Snapshots](http://backup.jungletestnet.io/snapshots/)
+  * [Snapshots](http://backup.cryptolions.io/Jungle/snapshots/)
 
 --------------
 
