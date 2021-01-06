@@ -1,7 +1,7 @@
 # Welcome to the EOS Jungle3.0 Testnet [manual node installation]  
 
 Chain ID: 2a02a0053e5a8cf73a56ba0fda11e4d92e0238a4a2aa74fccf46d5a910746840  
-Based on tag: v2.0.7  
+Based on tag: v2.1.0-rc2  
 
 Please join out Jungle testnet <a target="_blank" href="https://t.me/jungletestnet">Telegram channel</a>  
 Network Monitor: https://monitor.jungletestnet.io/  
@@ -27,7 +27,7 @@ cd /opt/EOSIO
 git clone https://github.com/eosio/eos --recursive    
 cd eos  
 
-git checkout v2.0.7  
+git checkout v2.1.0-rc2  
 git submodule update --init --recursive   
 
 ./scripts/eosio_build.sh -P -y
@@ -38,11 +38,11 @@ B. Copy binaries to keep old versions and make sym link to latest:
 
 ```
 mkdir /opt/bin
-mkdir /opt/bin/v2.0.7
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v2.0.7/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v2.0.7/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v2.0.7/
-ln -sf /opt/bin/v2.0.7 /opt/bin/bin
+mkdir /opt/bin/v2.1.0-rc2
+cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v2.1.0-rc2/
+cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v2.1.0-rc2/
+cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v2.1.0-rc2/
+ln -sf /opt/bin/v2.1.0-rc2 /opt/bin/bin
 ```
 
 So /opt/bin/bin will point to latest binaries  
@@ -51,22 +51,22 @@ So /opt/bin/bin will point to latest binaries
 # 1.2 EOSIO - installing from precompiled binaries  
 
 A. Download the latest version of EOSIO for your OS from:  
-https://github.com/EOSIO/eos/releases/tag/v2.0.7   
-For example, for ubuntu 18.04 you need to download deb eosio_2.0.7-1-ubuntu-18.04_amd64.deb              
+https://github.com/EOSIO/eos/releases/tag/v2.1.0-rc2   
+For example, for ubuntu 18.04 you need to download deb eosio_2.1.0-rc2-ubuntu-18.04_amd64.deb              
 To install it you can use apt:  
 ```
-apt install ./eosio_2.0.4-7-ubuntu-18.04_amd64.deb   
+apt install ./eosio_2.1.0-rc2-ubuntu-18.04_amd64.deb   
 ```
-It will download all dependencies and install EOSIO to /usr/opt/eosio/v2.0.7  
+It will download all dependencies and install EOSIO to /usr/opt/eosio/v2.1.0-rc2  
 B. Copy binaries to keep old versions and make sym link to latest:  
 
 ```
  mkdir /opt/bin
- mkdir /opt/bin/v2.0.7
- cp /usr/opt/eosio/2.0.7/bin/nodeos /opt/bin/v2.0.7/
- cp /usr/opt/eosio/2.0.7/bin/cleos /opt/bin/v2.0.7/
- cp /usr/opt/eosio/2.0.7/bin/keosd /opt/bin/v2.0.7/
- ln -sf /opt/bin/v2.0.7 /opt/bin/bin
+ mkdir /opt/bin/2.1.0-rc2
+ cp /usr/opt/eosio/2.1.0-rc2/bin/nodeos /opt/bin/v2.1.0-rc2/
+ cp /usr/opt/eosio/2.1.0-rc2/bin/cleos /opt/bin/v2.1.0-rc2/
+ cp /usr/opt/eosio/2.1.0-rc2/bin/keosd /opt/bin/v2.1.0-rc2/
+ ln -sf /opt/bin/v2.1.0-rc2 /opt/bin/bin
 ```
 
 So /opt/bin/bin will be point to latest binaries  
@@ -81,7 +81,7 @@ cd /opt/EOSIO/eos
 git checkout -f
 git branch -f
 git pull
-git checkout v2.0.7   
+git checkout v2.1.0-rc2   
 git submodule update --init --recursive   
 
 
@@ -89,11 +89,11 @@ git submodule update --init --recursive
 ./scripts/eosio_uninstall.sh
 ./scripts/eosio_install.sh
 
-mkdir /opt/bin/v2.0.7
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v2.0.7/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v2.0.7/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v2.0.7/
-ln -sf /opt/bin/v2.0.7 /opt/bin/bin
+mkdir /opt/bin/v2.1.0-rc2
+cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v2.1.0-rc2/
+cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v2.1.0-rc2/
+cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v2.1.0-rc2/
+ln -sf /opt/bin/v2.1.0-rc2 /opt/bin/bin
 ```  
 
 # 2.3 Update binaries  
