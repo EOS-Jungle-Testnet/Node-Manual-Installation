@@ -11,11 +11,9 @@
 
 NODEOSBINDIR="/opt/bin/bin"
 
-WALLETHOST="127.0.0.1"
-NODEHOST="127.0.0.1"
-NODEPORT="8888"
-WALLETPORT="3000"
+WALLET="http://127.0.0.1:3000"
+NODE="http://127.0.0.1:8888"
 
 
 
-$NODEOSBINDIR/cleos -u http://$NODEHOST:$NODEPORT --wallet-url http://$WALLETHOST:$WALLETPORT "$@"
+$NODEOSBINDIR/cleos -u $NODE --wallet-url $WALLET "$@"
