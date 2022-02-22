@@ -9,7 +9,7 @@
 #
 ###############################################################################
 
-DIR="/opt/Jungle2Testnet/Wallet"
+DIR="/opt/Jungle4Testnet/Wallet"
 
     if [ -f $DIR"/wallet.pid" ]; then
         pid=$(cat $DIR"/wallet.pid")

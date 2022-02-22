@@ -11,7 +11,7 @@
 
 
 NODEOSBINDIR="/opt/bin/bin"
-DATADIR="/opt/Jungle3Testnet"
+DATADIR="/opt/Jungle4Testnet"
 
 $DATADIR/stop.sh
 echo -e "Starting Nodeos \n";

@@ -9,7 +9,7 @@
 #
 ###############################################################################
 
-DIR="/opt/Jungle3Testnet"
+DIR="/opt/Jungle4Testnet"
 
     if [ -f $DIR"/nodeos.pid" ]; then
 	pid=`cat $DIR"/nodeos.pid"`

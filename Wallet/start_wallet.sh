@@ -11,7 +11,7 @@
 ###############################################################################
 
 NODEOSBINDIR="/opt/bin/bin"
-DATADIR="/opt/Jungle2Testnet/Wallet"
+DATADIR="/opt/Jungle4Testnet/Wallet"
 WALLET_HOST="127.0.0.1"
 WALLET_POSRT="3000"
 
