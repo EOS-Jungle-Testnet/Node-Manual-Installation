@@ -1,17 +1,17 @@
-# Welcome to the EOS Jungle3.0 Testnet [manual node installation]  
+# Welcome to the EOS Jungle4.0 Testnet [manual node installation]  
 
-Chain ID: 2a02a0053e5a8cf73a56ba0fda11e4d92e0238a4a2aa74fccf46d5a910746840  
-Based on tag: v2.1.0  
+Chain ID: 73e4385a2708e6d7048834fbc1079f2fabb17b3c125b146af438971e90716c4d  
+Based on tag: v2.0.13  
 
 Please join out Jungle testnet <a target="_blank" href="https://t.me/jungletestnet">Telegram channel</a>  
-Network Monitor: https://monitor.jungletestnet.io/  
+Network Monitor: https://monitor4.jungletestnet.io/  
 
 
 ! This repo is for manual installation. Please use our auto installer script for auto installation:  
 https://github.com/EOS-Jungle-Testnet/Node-Auto-installation  
 
 
-To start a Jungle 3 node you need install EOSIO software. You can compile from sources or install from precompiled binaries:  
+To start a Jungle 4 node you need install EOSIO software. You can compile from sources or install from precompiled binaries:  
 
 # 1. Installing EOSIO  
 ---------------------------------------------------  
@@ -27,7 +27,7 @@ cd /opt/EOSIO
 git clone https://github.com/eosio/eos --recursive    
 cd eos  
 
-git checkout v2.1.0  
+git checkout v2.0.13  
 git submodule update --init --recursive   
 
 ./scripts/eosio_build.sh -P -y
@@ -38,11 +38,11 @@ B. Copy binaries to keep old versions and make sym link to latest:
 
 ```
 mkdir /opt/bin
-mkdir /opt/bin/v2.1.0
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v2.1.0/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v2.1.0/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v2.1.0/
-ln -sf /opt/bin/v2.1.0 /opt/bin/bin
+mkdir /opt/bin/v2.0.13
+cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v2.0.13/
+cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v2.0.13/
+cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v2.0.13/
+ln -sf /opt/bin/v2.0.13 /opt/bin/bin
 ```
 
 So /opt/bin/bin will point to latest binaries  
@@ -51,22 +51,22 @@ So /opt/bin/bin will point to latest binaries
 # 1.2 EOSIO - installing from precompiled binaries  
 
 A. Download the latest version of EOSIO for your OS from:  
-https://github.com/EOSIO/eos/releases/tag/v2.1.0   
-For example, for ubuntu 18.04 you need to download deb eosio_2.1.0-1-ubuntu-18.04_amd64.deb              
+https://github.com/EOSIO/eos/releases/tag/v2.0.13   
+For example, for ubuntu 18.04 you need to download deb eosio_2.0.13-1-ubuntu-18.04_amd64.deb              
 To install it you can use apt:  
 ```
-apt install ./eosio_2.1.0-1-ubuntu-18.04_amd64.deb   
+apt install ./eosio_2.0.13-1-ubuntu-18.04_amd64.deb   
 ```
-It will download all dependencies and install EOSIO to /usr/opt/eosio/v2.1.0  
+It will download all dependencies and install EOSIO to /usr/opt/eosio/v2.0.13  
 B. Copy binaries to keep old versions and make sym link to latest:  
 
 ```
  mkdir /opt/bin
- mkdir /opt/bin/v2.1.0
- cp /usr/opt/eosio/2.1.0/bin/nodeos /opt/bin/v2.1.0/
- cp /usr/opt/eosio/2.1.0/bin/cleos /opt/bin/v2.1.0/
- cp /usr/opt/eosio/2.1.0/bin/keosd /opt/bin/v2.1.0/
- ln -sf /opt/bin/v2.1.0 /opt/bin/bin
+ mkdir /opt/bin/v2.0.13
+ cp /usr/opt/eosio/2.1.0/bin/nodeos /opt/bin/v2.0.13/
+ cp /usr/opt/eosio/2.1.0/bin/cleos /opt/bin/v2.0.13/
+ cp /usr/opt/eosio/2.1.0/bin/keosd /opt/bin/v2.0.13/
+ ln -sf /opt/bin/v2.0.13 /opt/bin/bin
 ```
 
 So /opt/bin/bin will be point to latest binaries  
@@ -81,7 +81,7 @@ cd /opt/EOSIO/eos
 git checkout -f
 git branch -f
 git pull
-git checkout v2.1.0   
+git checkout v2.0.13   
 git submodule update --init --recursive   
 
 
@@ -89,11 +89,11 @@ git submodule update --init --recursive
 ./scripts/eosio_uninstall.sh
 ./scripts/eosio_install.sh
 
-mkdir /opt/bin/v2.1.0
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v2.1.0/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v2.1.0/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v2.1.0/
-ln -sf /opt/bin/v2.1.0-rc2 /opt/bin/bin
+mkdir /opt/bin/v2.0.13
+cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v2.0.13/
+cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v2.0.13/
+cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v2.0.13/
+ln -sf /opt/bin/v2.0.13-rc2 /opt/bin/bin
 ```  
 
 # 2.3 Update binaries  
@@ -101,12 +101,12 @@ To upgrade precompiled installation pleasse folow the same steps as in 1.2 (Inst
 
 ------------------------------------------------------------------  
 
-# 3. Install Jungle3.0 Testnet node [manual]  
+# 3. Install Jungle4.0 Testnet node [manual]  
     Check our auto installer script: https://github.com/EOS-Jungle-Testnet/Node-Auto-installation  
 
 ```
-    mkdir /opt/Jungle3Testnet
-    cd /opt/Jungle3Testnet
+    mkdir /opt/Jungle4Testnet
+    cd /opt/Jungle4Testnet
     git clone https://github.com/EOS-Jungle-Testnet/Node-Manual-Installation.git ./
 
 ```
@@ -127,7 +127,7 @@ To upgrade precompiled installation pleasse folow the same steps as in 1.2 (Inst
   - if BP: your producer name: producer-name = YOUR_BP_NAME  
   - if BP: add producer keypair for signing blocks (this pub key should be used in regproducer action):  
   signature-provider = YOUR_PUB_KEY_HERE=KEY:YOUR_PRIV_KEY_HERE  
-  - replace p2p-peer-address list with fresh generated on monitor site: http://monitor3.jungletestnet.io/#p2p  
+  - replace p2p-peer-address list with fresh generated on monitor site: http://monitor4.jungletestnet.io/#p2p  
   - Check chain-state-db-size-mb value in config, it should be not bigger than you have RAM:  
     chain-state-db-size-mb = 16384  
   
@@ -136,7 +136,7 @@ To upgrade precompiled installation pleasse folow the same steps as in 1.2 (Inst
 
 - Start wallet, run  
 ```
-cd /opt/Jungle3Testnet
+cd /opt/Jungle4Testnet
 ./Wallet/start_wallet.sh  
 ```
 
@@ -169,22 +169,22 @@ Enter your private key
 
 
 
-- Check if you can access you node using link http://you_server:8888/v1/chain/get_info (<a href="http://jungle3.cryptolions.io/v1/chain/get_info" target="_blank">Example</a>)  
+- Check if you can access you node using link http://you_server:8888/v1/chain/get_info (<a href="http://jungle4.cryptolions.io/v1/chain/get_info" target="_blank">Example</a>)  
 
 
-- If you would like to run a BP node you need register your node at Jungle2.0 Testnet monitor  
-    http://monitor.jungletestnet.io/#register  
+- If you would like to run a BP node you need register your node at Jungle4.0 Testnet monitor  
+    http://monitor4.jungletestnet.io/#register  
     * In registartion form - PIN is your password to node information updates  
     After registration is complete - personal intallation script will be created for you. Skip this step in case of manual installation.  
 
 ==============================================================================================  
 
 # 4.1 Restore/Start from Backup
-   Download latest block and state archive for your OS from http://backup.jungletestnet.io/
+   Download latest block and state archive for your OS from https://backup.cryptolions.io/Jungle/
    
    ```
-   wget  http://backup.jungletestnet.io/ubuntu18/blocks-latest.tar.gz
-   wget http://backup.jungletestnet.io/ubuntu18/state-latest.tar.gz
+   wget  https://backup.cryptolions.io/Jungle//ubuntu18/blocks-latest.tar.gz
+   wget https://backup.cryptolions.io/Jungle/o/ubuntu18/state-latest.tar.gz
    ```
    After downloaded extract their
    ```
@@ -194,14 +194,14 @@ Enter your private key
    You got two folders block and state.  
    Ater that go to **NODE** folder, and remove files from folder blocks and state
    ```
-   cd /opt/Jungle3Testnet
+   cd /opt/Jungle4Testnet
    rm blocks/*
    rm state/*
    ```
    After that go where you extracted archive and move file from folder 
    ```
-   mv ~/blocks/* /opt/Jungle3Testnet/blocks/
-   mv ~/state/* /opt/Jungle3Testnet/state/
+   mv ~/blocks/* /opt/Jungle4Testnet/blocks/
+   mv ~/state/* /opt/Jungle4Testnet/state/
    ```
    After files moved start your NODE
    ```
@@ -216,21 +216,21 @@ Enter your private key
    after it downloaded run `start.sh` script with option `--snapshot` and snapshot file path
    ```
    cd /opt/Jungle3Testnet
-   ./start.sh --snapshot /opt/Jungle3Testnet/snapshots/latest-snapshot.bin
+   ./start.sh --snapshot /opt/Jungle4Testnet/snapshots/latest-snapshot.bin
    ```
  ---
 
 # 5. Usefull Information  
   
-# Jungle 3.0 Faucet - get free EOS Jungle tokens:  
-  http://monitor3.jungletestnet.io/#faucet  
+# Jungle 4.0 Faucet - get free EOS Jungle tokens:  
+  http://monitor4.jungletestnet.io/#faucet  
 
 # Other Tools/Examples  
 - In scripts folder you can find scripts examples: how to register bp, stake, vote, claimrewards, etc  
 - Vote using monitor (prepare Cleos command or use scatter)  
 
 - Create account:  
-  http://monitor3.jungletestnet.io/#account  
+  http://monitor4.jungletestnet.io/#account  
 
 
 - Cleos commands:  
@@ -261,15 +261,15 @@ List staked/delegated
 ./cleos.sh system listbw <account>   
 ```
  
-# Jungle3 History nodes
+# Jungle4 History nodes
 **Hyperion History**    
-https://jungle.cryptolions.io/v2/docs/  
-https://jungle3.eosusa.news/v2/docs/  
+https://jungle4.cryptolions.io/v2/docs/  
+ 
 
 **State History endpoint**  
 
 **Block Explorers**  
-https://jungle.cryptolions.io/v2/explore
+https://jungle4.cryptolions.io/v2/explore
 
 --------------  
 
