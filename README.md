@@ -210,12 +210,12 @@ Enter your private key
 # 4.2 Restore/Start from Snapshots
    Download latest snapshot from http://backup.cryptolions.io/Jungle/snapshots/ to snapshots folder in your **NODE** directory
    ```
-   cd /opt/Jungle3Testnet/snapshots/
+   cd /opt/Jungle4Testnet/snapshots/
    wget http://backup.cryptolions.io/Jungle/snapshots/latest-snapshot.bin
    ```
    after it downloaded run `start.sh` script with option `--snapshot` and snapshot file path
    ```
-   cd /opt/Jungle3Testnet
+   cd /opt/Jungle4Testnet
    ./start.sh --snapshot /opt/Jungle4Testnet/snapshots/latest-snapshot.bin
    ```
  ---
@@ -223,14 +223,14 @@ Enter your private key
 # 5. Usefull Information  
   
 # Jungle 4.0 Faucet - get free EOS Jungle tokens:  
-  http://monitor4.jungletestnet.io/#faucet  
+  https://monitor4.jungletestnet.io/#faucet  
 
 # Other Tools/Examples  
 - In scripts folder you can find scripts examples: how to register bp, stake, vote, claimrewards, etc  
 - Vote using monitor (prepare Cleos command or use scatter)  
 
 - Create account:  
-  http://monitor4.jungletestnet.io/#account  
+  https://monitor4.jungletestnet.io/#account  
 
 
 - Cleos commands:  
