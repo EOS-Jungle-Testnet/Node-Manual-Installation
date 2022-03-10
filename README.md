@@ -149,7 +149,7 @@ Check logs stderr.txt if node is running ok.
 
 - Create your wallet file  
 ```
-./cleos.sh wallet create --to-file pass.tx
+./cleos.sh wallet create --file pass.tx
 ```
 Your password will be in pass.txt it will be used when unlock wallet  
 
