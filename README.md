@@ -131,7 +131,7 @@ To upgrade precompiled installation pleasse folow the same steps as in 1.2 (Inst
   - Check chain-state-db-size-mb value in config, it should be not bigger than you have RAM:  
     chain-state-db-size-mb = 16384  
   
-- Open TCP Ports (8888, 9876) on your firewall/router  
+- Open TCP Ports (8888, 9876) for inbound traffic on your firewall/router  
 
 
 - Start wallet, run  
