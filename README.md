@@ -1,7 +1,7 @@
-# Welcome to the EOS Jungle4.0 Testnet [manual node installation]  
+# Welcome to the AntelopeIO/leap Jungle4.0 Testnet [manual node installation]  
 
 Chain ID: 73e4385a2708e6d7048834fbc1079f2fabb17b3c125b146af438971e90716c4d  
-Based on tag: v2.0.13  
+Based on tag: v3.2.1  
 
 Please join out Jungle testnet <a target="_blank" href="https://t.me/jungletestnet">Telegram channel</a>  
 Network Monitor: https://monitor4.jungletestnet.io/  
@@ -21,13 +21,13 @@ To start a Jungle 4 node you need install EOSIO software. You can compile from s
 A. Create folder, download sources, compile and install:  
 
 ```
-mkdir /opt/EOSIO  
-cd /opt/EOSIO  
+mkdir /opt/leap  
+cd /opt/leap  
 
-git clone https://github.com/eosio/eos --recursive    
-cd eos  
+git clone https://github.com/AntelopeIO/leap --recursive    
+cd leap  
 
-git checkout v2.0.13  
+git checkout  v3.2.1
 git submodule update --init --recursive   
 
 ./scripts/eosio_build.sh -P -y
