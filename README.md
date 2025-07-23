@@ -1,7 +1,7 @@
 # Welcome to the AntelopeIO/leap Jungle4.0 Testnet [manual node installation]  
 
 Chain ID: 73e4385a2708e6d7048834fbc1079f2fabb17b3c125b146af438971e90716c4d  
-Based on tag: v3.2.1  
+Based on tag: v1.2.1  
 
 Please join out Jungle testnet <a target="_blank" href="https://t.me/jungletestnet">Telegram channel</a>  
 Network Monitor: https://monitor4.jungletestnet.io/  
@@ -13,88 +13,52 @@ https://github.com/EOS-Jungle-Testnet/Node-Auto-installation
 
 To start a Jungle 4 node you need install EOSIO software. You can compile from sources or install from precompiled binaries:  
 
-# 1. Installing EOSIO  
+# 1. Installing Spring  
 ---------------------------------------------------  
-
-# 1.1 EOSIO - Installing from sources  
+### Currently support the following operating systems:
+ * Ubuntu 22.04 Jammy  
+ * Ubuntu 20.04 Focal
+# 1.1 Spring - Installing from sources   
 
 A. Create folder, download sources, compile and install:  
 
-```
-mkdir /opt/leap  
-cd /opt/leap  
+## Complete instruction  
+ * [Instruction](https://github.com/AntelopeIO/spring?tab=readme-ov-file#pinned-build)
 
-git clone https://github.com/AntelopeIO/leap --recursive    
-cd leap  
-
-git checkout  v3.2.1
-git submodule update --init --recursive   
-
-./scripts/eosio_build.sh -P -y
-./scripts/eosio_install.sh
-```  
-
-B. Copy binaries to keep old versions and make sym link to latest:  
+If you use pinned-build you can got to next step 1.2
 
 ```
-mkdir /opt/bin
-mkdir /opt/bin/v2.0.13
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v2.0.13/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v2.0.13/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v2.0.13/
-ln -sf /opt/bin/v2.0.13 /opt/bin/bin
-```
-
-So /opt/bin/bin will point to latest binaries  
 
 
-# 1.2 EOSIO - installing from precompiled binaries  
 
-A. Download the latest version of EOSIO for your OS from:  
-https://github.com/EOSIO/eos/releases/tag/v2.0.13   
-For example, for ubuntu 18.04 you need to download deb eosio_2.0.13-1-ubuntu-18.04_amd64.deb              
+# 1.2 Spring - installing from precompiled binaries  
+
+A. Download the latest version of Spring for your OS from:  
+https://github.com/AntelopeIO/spring/releases/download/v1.2.1/antelope-spring_1.2.1_amd64.deb   
+For example, you need to download deb antelope-spring_1.2.1_amd64.deb              
 To install it you can use apt:  
+
 ```
-apt install ./eosio_2.0.13-1-ubuntu-18.04_amd64.deb   
+apt install ./antelope-spring_1.2.1_amd64.deb   
 ```
-It will download all dependencies and install EOSIO to /usr/opt/eosio/v2.0.13  
+It will download all dependencies and install SpringO to /usr/opt/eosio/v2.0.13  
 B. Copy binaries to keep old versions and make sym link to latest:  
 
 ```
- mkdir /opt/bin
- mkdir /opt/bin/v2.0.13
- cp /usr/opt/eosio/2.1.0/bin/nodeos /opt/bin/v2.0.13/
- cp /usr/opt/eosio/2.1.0/bin/cleos /opt/bin/v2.0.13/
- cp /usr/opt/eosio/2.1.0/bin/keosd /opt/bin/v2.0.13/
- ln -sf /opt/bin/v2.0.13 /opt/bin/bin
+ mkdir /opt/bin  
+ mkdir /opt/bin/v1.2.1  
+ cp /usr/bin/nodeos /opt/bin/v1.2.1/  
+ cp /usr//bin/cleos /opt/bin/v1.2.1/  
+ cp /usr/bin/keosd /opt/bin/v1.2.1/  
+ ln -sf /opt/bin/v1.2.1 /opt/bin/bin  
 ```
 
 So /opt/bin/bin will be point to latest binaries  
 
 ---------------------------------------------------------  
-# 2. Update EOSIO software to new version  
+# 2. Update Spring software to new version  
+ * [Instruction](https://github.com/AntelopeIO/spring?tab=readme-ov-file#pinned-build)
 
-# 2.1 Update sources  
-
-```
-cd /opt/EOSIO/eos
-git checkout -f
-git branch -f
-git pull
-git checkout v2.0.13   
-git submodule update --init --recursive   
-
-
-./scripts/eosio_build.sh -P -y
-./scripts/eosio_uninstall.sh
-./scripts/eosio_install.sh
-
-mkdir /opt/bin/v2.0.13
-cp /opt/EOSIO/eos/build/programs/nodeos/nodeos /opt/bin/v2.0.13/
-cp /opt/EOSIO/eos/build/programs/cleos/cleos /opt/bin/v2.0.13/
-cp /opt/EOSIO/eos/build/programs/keosd/keosd /opt/bin/v2.0.13/
-ln -sf /opt/bin/v2.0.13-rc2 /opt/bin/bin
-```  
 
 # 2.3 Update binaries  
 To upgrade precompiled installation pleasse folow the same steps as in 1.2 (Installation from precompiled)  
@@ -183,8 +147,8 @@ Enter your private key
    Download latest block and state archive for your OS from https://backup.cryptolions.io/Jungle/
    
    ```
-   wget  https://backup.cryptolions.io/Jungle//ubuntu18/blocks-latest.tar.gz
-   wget https://backup.cryptolions.io/Jungle/o/ubuntu18/state-latest.tar.gz
+   wget  https://backup.cryptolions.io/Jungle/full_backup/blocks-xxx.tar.gz  
+   wget https://backup.cryptolions.io/Jungle/full_backup/snapshot-xxx.bin
    ```
    After downloaded extract their
    ```
@@ -211,7 +175,7 @@ Enter your private key
    Download latest snapshot from http://backup.cryptolions.io/Jungle/snapshots/ to snapshots folder in your **NODE** directory
    ```
    cd /opt/Jungle4Testnet/snapshots/
-   wget http://backup.cryptolions.io/Jungle/snapshots/latest-snapshot.bin
+   wget https://backup.cryptolions.io/Jungle/snapshots/latest-snapshot.bin
    ```
    after it downloaded run `start.sh` script with option `--snapshot` and snapshot file path
    ```
@@ -275,7 +239,7 @@ https://jungle4.cryptolions.io/v2/explore
 
 # Backups
 ### Full(blocks and states):
-  * [Ubuntu 18](http://backup.cryptolions.io/Jungle/ubuntu18/)  
+  * [Full backup](hhttps://backup.cryptolions.io/Jungle/full_backup/)  
 ### Snapshot:
   * [Snapshots](http://backup.cryptolions.io/Jungle/snapshots/)
 
