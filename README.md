@@ -25,10 +25,7 @@ A. Create folder, download sources, compile and install:
 ## Complete instruction  
  * [Instruction](https://github.com/AntelopeIO/spring?tab=readme-ov-file#pinned-build)
 
-If you use pinned-build you can got to next step 1.2
-
-```
-
+If you use pinned-build you can got to next step 1.2  
 
 
 # 1.2 Spring - installing from precompiled binaries  
