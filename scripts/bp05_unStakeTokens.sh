@@ -14,4 +14,4 @@ TO="acryptolions"
 NET="10.0000 EOS"
 CPU="10.0000 EOS"
 
-./cleos.sh system undelegatebw $FROM $TO $NET $CPU -p $FROM
+./cleos.sh system undelegatebw $FROM $TO "$NET" "$CPU" -p $FROM
