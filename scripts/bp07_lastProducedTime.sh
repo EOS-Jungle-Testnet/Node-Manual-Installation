@@ -12,12 +12,16 @@
 
 
 PRODUCER="lioninjungle"
-TIMESTAMP="$(./cleos.sh get table eosio eosio producers -l 150 | grep $PRODUCER -A 8 | grep last_produced_block | cut -d':' -f2)"
+DEPTH=600   # blocks to look back, ~2 schedule rounds (21 producers x 12 blocks)
 
-if [ "$(uname)" == "Darwin" ]; then
-    date -d "$((($TIMESTAMP * 500 + 946684800000) / 1000))"
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    date --date "@$((($TIMESTAMP * 500 + 946684800000) / 1000))"
-else
-    echo "Unsupported system"
-fi
+LIB="$(./cleos.sh get info | grep '"last_irreversible_block_num"' | grep -o '[0-9]*')"
+
+for ((n = LIB; n > LIB - DEPTH; n--)); do
+    BLOCK="$(./cleos.sh get block $n)"
+    if echo "$BLOCK" | grep -q "\"producer\": \"$PRODUCER\""; then
+        echo "$PRODUCER last produced block $n at $(echo "$BLOCK" | grep -m1 '"timestamp"' | cut -d'"' -f4) UTC"
+        exit 0
+    fi
+done
+
+echo "$PRODUCER did not produce any of the last $DEPTH blocks"
