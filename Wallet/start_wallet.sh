@@ -10,8 +10,8 @@
 #
 ###############################################################################
 
-NODEOSBINDIR="/opt/Jungle4Testnet/bin/bin"
-DATADIR="/opt/Jungle4Testnet/Wallet"
+DATADIR="$(cd "$(dirname "$0")" && pwd)"   # the Wallet folder this script is in
+NODEOSBINDIR="$(dirname "$DATADIR")/bin/bin"
 WALLET_HOST="127.0.0.1"
 WALLET_POSRT="3000"
 

@@ -9,7 +9,7 @@
 #
 ###############################################################################
 
-DIR="/opt/Jungle4Testnet"
+DIR="$(cd "$(dirname "$0")" && pwd)"   # the folder this script is in
 
     if [ -f $DIR"/nodeos.pid" ]; then
 	pid=`cat $DIR"/nodeos.pid"`

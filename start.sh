@@ -10,8 +10,10 @@
 ###############################################################################
 
 
-NODEOSBINDIR="/opt/Jungle4Testnet/bin/bin"
-DATADIR="/opt/Jungle4Testnet"
+DATADIR="$(cd "$(dirname "$0")" && pwd)"   # the folder this script is in
+NODEOSBINDIR="$DATADIR/bin/bin"
+
+[ -f "$DATADIR/config.ini" ] || { echo "No config.ini in $DATADIR - run ./configure.sh first (README, section 3)" >&2; exit 1; }
 
 $DATADIR/stop.sh
 echo -e "Starting Nodeos \n";

@@ -15,3 +15,8 @@
 /Wallet/wallet.lock
 /Wallet/wallet.pid
 /Wallet/keosd.sock
+/config.ini
+/config.ini.bak-*
+/.config.ini.*
+/keys.txt
+/keys.txt.bak-*

@@ -9,7 +9,7 @@
 #
 ###############################################################################
 
-DIR="/opt/Jungle4Testnet/Wallet"
+DIR="$(cd "$(dirname "$0")" && pwd)"   # the Wallet folder this script is in
 
     if [ -f $DIR"/wallet.pid" ]; then
         pid=$(cat $DIR"/wallet.pid")
