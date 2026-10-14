@@ -131,10 +131,10 @@ Enter your private key
 - Check if you can access your node using link http://your_server:8888/v1/chain/get_info (<a href="http://jungle4.cryptolions.io/v1/chain/get_info" target="_blank">Example</a>)  
 
 
-- If you would like to run a BP node you need register your node at Jungle4.0 Testnet monitor  
-    http://monitor4.jungletestnet.io/#register  
+- If you would like to run a BP node, register your node at the Jungle4.0 Testnet monitor  
+    https://monitor4.jungletestnet.io/#register  
     * In registration form - PIN is your password to node information updates  
-    After registration is complete - personal installation script will be created for you. Skip this step in case of manual installation.  
+    After registration your node appears in the monitor (All Nodes tab). The monitor no longer generates an installation script; follow this manual installation.  
 
 # 3.1 BP: Register finalizer key (Savanna)  
 Jungle4 runs Savanna consensus. A BP without an active finalizer key is **skipped** when the producer schedule is built, even if it has enough votes to be in top 21.  
