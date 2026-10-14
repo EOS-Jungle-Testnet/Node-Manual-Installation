@@ -14,10 +14,17 @@ To start a Jungle 4 node you need install AntelopeIO Spring software. You can co
 
 # 1. Installing Spring  
 ---------------------------------------------------  
-### Currently support the following operating systems:
- * Ubuntu 22.04 Jammy  
+### Supported operating systems
+The full install from this guide was tested on 2026-10-14 with the Spring v1.2.2 `.deb`. Each run covered the install, `configure.sh` for a full node and for a BP with generated keys, a start from the snapshot, and a sync to the chain head.
  * Ubuntu 20.04 Focal  
- * Ubuntu 26.04 Resolute: the 1.2.2 .deb installs and runs (full install from this guide tested 2026-10-14)
+ * Ubuntu 22.04 Jammy  
+ * Ubuntu 24.04 Noble  
+ * Ubuntu 26.04 Resolute  
+
+A minimal Ubuntu install may lack the tools this guide uses. Install them first:
+```
+apt install -y git wget zstd
+```
 # 1.1 Spring - Installing from sources   
 
 A. Create folder, download sources, compile and install:  
