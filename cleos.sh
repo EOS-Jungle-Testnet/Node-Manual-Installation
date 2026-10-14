@@ -9,11 +9,11 @@
 #
 ###############################################################################
 
-NODEOSBINDIR="/opt/Jungle4Testnet/bin/bin"
+NODEOSBINDIR="$(cd "$(dirname "$0")" && pwd)"/bin/bin
 
 WALLET="http://127.0.0.1:3000"
 NODE="http://127.0.0.1:8888"
 
 
 
-$NODEOSBINDIR/cleos -u $NODE --wallet-url $WALLET "$@"
+"$NODEOSBINDIR/cleos" -u $NODE --wallet-url $WALLET "$@"

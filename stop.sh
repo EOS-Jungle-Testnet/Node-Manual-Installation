@@ -9,10 +9,10 @@
 #
 ###############################################################################
 
-DIR="/opt/Jungle4Testnet"
+DIR="$(cd "$(dirname "$0")" && pwd)"   # the folder this script is in
 
-    if [ -f $DIR"/nodeos.pid" ]; then
-	pid=`cat $DIR"/nodeos.pid"`
+    if [ -f "$DIR/nodeos.pid" ]; then
+	pid=`cat "$DIR/nodeos.pid"`
 	echo $pid
 	kill $pid
 	
@@ -24,13 +24,13 @@ DIR="/opt/Jungle4Testnet"
             echo -ne "."
             sleep 1
         done
-	rm -r $DIR"/nodeos.pid"
+	rm -r "$DIR/nodeos.pid"
 	
 	DATE=$(date -d "now" +'%Y_%m_%d-%H_%M')
-        if [ ! -d $DIR/logs ]; then
-            mkdir $DIR/logs
+        if [ ! -d "$DIR/logs" ]; then
+            mkdir "$DIR/logs"
         fi
-        tar -pcvzf $DIR/logs/stderr-$DATE.txt.tar.gz -C $DIR stderr.txt stdout.txt
+        tar -pcvzf "$DIR/logs/stderr-$DATE.txt.tar.gz" -C "$DIR" stderr.txt stdout.txt
 
 
         echo -ne "\rNodeos Stopped.    \n"

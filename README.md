@@ -67,26 +67,28 @@ To upgrade a precompiled installation: install the new .deb as in 1.2 A, copy th
     ln -sfn /opt/Jungle4Testnet/bin/v1.2.2 /opt/Jungle4Testnet/bin/bin
 ```
 
-- In case you use a different data-dir folders -> edit all paths in files cleos.sh, start.sh, stop.sh, config.ini, Wallet/start_wallet.sh, Wallet/stop_wallet.sh  
+- The node folder can be anywhere, as long as its path has no spaces (nodeos and keosd reject such paths). The scripts find their own folder. The commands here use `/opt/Jungle4Testnet`.
 
-- Choose your producer name (12 symbols length only,  a-z 1-5 allowed only) and create own EOS key pair  
-  you can create key pair using cleos command  
-  `./cleos.sh create key --to-console`  
-
-
-- If non BP node: use the same config, just comment out rows with producer-name and both signature-provider rows  
-  
-- Edit config.ini:  
-  - server address: p2p-server-address = YOUR_NODE_EXTERNAL_IP_ADDRESS:9876  
-
-  - if BP: your producer name: producer-name = YOUR_BP_NAME  
-  - if BP: add producer keypair for signing blocks (this pub key should be used in regproducer action):  
-  signature-provider = YOUR_PUB_KEY_HERE=KEY:YOUR_PRIV_KEY_HERE  
-  - if BP: add your finalizer (BLS) keypair, see [3.1 Register finalizer key](#31-bp-register-finalizer-key-savanna):  
-  signature-provider = YOUR_PUB_BLS_KEY_HERE=KEY:YOUR_PRIV_BLS_KEY_HERE  
-  - p2p-peer-address: config.ini has the list of public peers as of 2026-10-14. If your node can't find peers, refresh it from the monitor: https://monitor4.jungletestnet.io/#p2p  
-  - Check chain-state-db-size-mb value in config, it should be not bigger than you have RAM:  
-    chain-state-db-size-mb = 16384  
+- Create `config.ini` with `configure.sh`. It asks for:
+  - the node type: full node or block producer;
+  - your public IP or hostname, which goes into `p2p-server-address`;
+  - for a BP, also the producer name (12 symbols, a-z 1-5) and the keys. It can generate the signing key and the finalizer (BLS) key for you.
+```
+    cd /opt/Jungle4Testnet
+    ./configure.sh
+```
+  Or give everything as flags (`./configure.sh --help`):
+```
+    ./configure.sh --type full --p2p-address YOUR_NODE_EXTERNAL_IP_ADDRESS
+    ./configure.sh --type bp --p2p-address YOUR_NODE_EXTERNAL_IP_ADDRESS --bp-name YOUR_BP_NAME --generate-keys
+```
+  - **For a BP:** `config.ini` holds your private keys, so it is created with `chmod 600`. Generated keys are also saved to `keys.txt` (`chmod 600`); back it up.
+    - The signing public key goes into `regproducer`.
+    - The BLS public key and its Proof of Possession go into `regfinkey` (see [3.1](#31-bp-register-finalizer-key-savanna)).
+  - It warns if `chain-state-db-size-mb` (16384) is bigger than your RAM.
+  - `config.ini` is not tracked by git, so `git pull` never conflicts with it. To start over, run `./configure.sh --force`; a backup of the old file is kept.
+  - **By hand instead:** copy `config.ini.example` to `config.ini`, then replace the `YOUR_...` values. For a full node, comment out `producer-name` and both `signature-provider` lines.
+  - `p2p-peer-address`: `config.ini.example` has the list of public peers as of 2026-10-14. If your node can't find peers, refresh the list from the monitor: https://monitor4.jungletestnet.io/#p2p
   
 - Open TCP port 9876 (p2p) for inbound traffic on your firewall/router. Open 8888 (HTTP API) only if you run a public API node, keep it closed on a BP node.  
 
@@ -135,6 +137,8 @@ Enter your private key
 
 # 3.1 BP: Register finalizer key (Savanna)  
 Jungle4 runs Savanna consensus. A BP without an active finalizer key is **skipped** when the producer schedule is built, even if it has enough votes to be in top 21.  
+
+If you ran `./configure.sh --generate-keys`, steps A and B are already done: the BLS key is in `config.ini`, and its public key and Proof of Possession are in `keys.txt`. Go to step C.  
 
 A. Create a BLS key pair (keep the private key secret):  
 ```
