@@ -16,7 +16,8 @@ To start a Jungle 4 node you need install AntelopeIO Spring software. You can co
 ---------------------------------------------------  
 ### Currently support the following operating systems:
  * Ubuntu 22.04 Jammy  
- * Ubuntu 20.04 Focal
+ * Ubuntu 20.04 Focal  
+ * Ubuntu 26.04 Resolute: the 1.2.2 .deb installs and runs (full install from this guide tested 2026-10-14)
 # 1.1 Spring - Installing from sources   
 
 A. Create folder, download sources, compile and install:  
@@ -38,19 +39,7 @@ To install it you can use apt:
 apt install ./antelope-spring_1.2.2_amd64.deb   
 ```
 It will download all dependencies and install nodeos, cleos, keosd and spring-util to /usr/bin  
-B. Copy binaries to keep old versions and make sym link to latest:  
-
-```
- mkdir /opt/bin  
- mkdir /opt/bin/v1.2.2  
- cp /usr/bin/nodeos /opt/bin/v1.2.2/  
- cp /usr/bin/cleos /opt/bin/v1.2.2/  
- cp /usr/bin/keosd /opt/bin/v1.2.2/  
- cp /usr/bin/spring-util /opt/bin/v1.2.2/  
- ln -sfn /opt/bin/v1.2.2 /opt/bin/bin  
-```
-
-So /opt/bin/bin will be point to latest binaries  
+B. A copy of these binaries is kept inside the node folder, one folder per version; see section 3 (right after `git clone`).  
 
 ---------------------------------------------------------  
 # 2. Update Spring software to new version  
@@ -58,7 +47,7 @@ So /opt/bin/bin will be point to latest binaries
 
 
 # 2.1 Update binaries  
-To upgrade precompiled installation please follow the same steps as in 1.2 (Installation from precompiled)  
+To upgrade a precompiled installation: install the new .deb as in 1.2 A, copy the binaries into a new `bin/vX.Y.Z` folder and repoint `bin/bin` as in section 3, then restart the node (`./start.sh`).  
 
 ------------------------------------------------------------------  
 
@@ -69,6 +58,13 @@ To upgrade precompiled installation please follow the same steps as in 1.2 (Inst
     cd /opt/Jungle4Testnet
     git clone https://github.com/EOS-Jungle-Testnet/Node-Manual-Installation.git ./
 
+```
+
+- Keep the binaries inside the node folder, one folder per version, with `bin/bin` pointing to the current one (all scripts use `/opt/Jungle4Testnet/bin/bin`):
+```
+    mkdir -p /opt/Jungle4Testnet/bin/v1.2.2
+    cp /usr/bin/nodeos /usr/bin/cleos /usr/bin/keosd /usr/bin/spring-util /opt/Jungle4Testnet/bin/v1.2.2/
+    ln -sfn /opt/Jungle4Testnet/bin/v1.2.2 /opt/Jungle4Testnet/bin/bin
 ```
 
 - In case you use a different data-dir folders -> edit all paths in files cleos.sh, start.sh, stop.sh, config.ini, Wallet/start_wallet.sh, Wallet/stop_wallet.sh  
@@ -109,8 +105,9 @@ Check logs stderr.txt if node is running ok.
 - Create your wallet file  
 ```
 ./cleos.sh wallet create --file pass.txt
+chmod 600 pass.txt
 ```
-Your password will be in pass.txt it will be used when unlock wallet  
+Your password will be in pass.txt it will be used when unlock wallet. `cleos` creates the file readable by every user on the server, hence the `chmod 600`.  
 
 
 - Unlock your wallet  
@@ -141,7 +138,7 @@ Jungle4 runs Savanna consensus. A BP without an active finalizer key is **skippe
 
 A. Create a BLS key pair (keep the private key secret):  
 ```
-/opt/bin/bin/spring-util bls create key --to-console
+/opt/Jungle4Testnet/bin/bin/spring-util bls create key --to-console
 ```
 It prints `Private key: PVT_BLS_...`, `Public key: PUB_BLS_...` and `Proof of Possession: SIG_BLS_...`  
 

@@ -1,0 +1,17 @@
+# Created by the node, the wallet and the steps in README.md
+/bin/
+/blocks/
+/state/
+/state-history/
+/protocol_features/
+/snapshots/
+/logs/
+/stderr.txt
+/stdout.txt
+/nodeos.pid
+/pass.txt
+/Wallet/config.ini
+/Wallet/*.wallet
+/Wallet/wallet.lock
+/Wallet/wallet.pid
+/Wallet/keosd.sock

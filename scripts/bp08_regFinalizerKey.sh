@@ -10,7 +10,7 @@
 ###############################################################################
 
 # Savanna: a BP without an active finalizer key is skipped in the producer schedule.
-# Create BLS keys with: /opt/bin/bin/spring-util bls create key --to-console
+# Create BLS keys with: /opt/Jungle4Testnet/bin/bin/spring-util bls create key --to-console
 # and add "signature-provider = PUB_BLS_...=KEY:PVT_BLS_..." to config.ini
 
 ACCOUNT="acryptolions"

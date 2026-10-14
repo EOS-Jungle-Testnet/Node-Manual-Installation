@@ -10,7 +10,7 @@
 ###############################################################################
 
 
-NODEOSBINDIR="/opt/bin/bin"
+NODEOSBINDIR="/opt/Jungle4Testnet/bin/bin"
 DATADIR="/opt/Jungle4Testnet"
 
 $DATADIR/stop.sh
