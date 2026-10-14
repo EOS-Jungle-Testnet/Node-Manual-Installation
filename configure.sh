@@ -35,6 +35,11 @@ EOF
 }
 
 die() { echo "configure.sh: $*" >&2; exit 1; }
+backup() { # copy a file to FILE.bak-<time>, never over an older backup
+	local b="$1.bak-$(date +%Y%m%d-%H%M%S)" n=1
+	while [ -e "$b" ]; do b="$1.bak-$(date +%Y%m%d-%H%M%S)-$n"; n=$((n + 1)); done
+	cp -p "$1" "$b"
+}
 ask() { # variable, question, default
 	local answer=""
 	read -r -p "$2${3:+ [$3]}: " answer || true
@@ -98,7 +103,7 @@ if [ "$TYPE" = bp ]; then
 		SIGN="$(awk '/Public key/ {print $3}' <<<"$k")=KEY:$(awk '/Private key/ {print $3}' <<<"$k")"
 		BLS="$(awk -F': ' '/Public key/ {print $2}' <<<"$b")=KEY:$(awk -F': ' '/Private key/ {print $2}' <<<"$b")"
 		POP=$(awk -F': ' '/Proof of Possession/ {print $2}' <<<"$b")
-		[ -e "$KEYS" ] && cp -p "$KEYS" "$KEYS.bak-$(date +%Y%m%d-%H%M%S)"
+		[ ! -e "$KEYS" ] || backup "$KEYS"
 		( umask 077
 		  { echo "# Jungle4 keys for $BPNAME, created by configure.sh on $(date -u +%FT%TZ). Keep a copy somewhere safe."
 		    echo "# Signing key: the public key goes into regproducer."
@@ -126,7 +131,7 @@ TYPE="$TYPE" P2P="$P2P" BPNAME="$BPNAME" SIGN="$SIGN" BLS="$BLS" awk '
 	{ print }
 ' "$TEMPLATE" > "$TMP"
 if [ "$TYPE" = bp ]; then chmod 600 "$TMP"; else chmod 644 "$TMP"; fi
-[ -e "$CONFIG" ] && cp -p "$CONFIG" "$CONFIG.bak-$(date +%Y%m%d-%H%M%S)"
+[ ! -e "$CONFIG" ] || backup "$CONFIG"
 mv -f "$TMP" "$CONFIG"
 trap - EXIT
 
