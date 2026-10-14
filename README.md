@@ -164,13 +164,18 @@ D. Check that the key is active:
 ==============================================================================================  
 
 # 4. Start/Restore from Snapshot
-   Download the latest snapshot (provided by EOS Nation) to snapshots folder in your **NODE** directory and unpack it (`apt install zstd` if needed):  
+   Download the latest snapshot to snapshots folder in your **NODE** directory, check it and unpack it (`apt install zstd` if needed).  
+   A new snapshot is published every day at ~03:15 UTC at https://jungletestnet.io/snapshots/ (the last 3 days are kept):  
    ```
    mkdir -p /opt/Jungle4Testnet/snapshots
    cd /opt/Jungle4Testnet/snapshots/
-   wget -O latest-snapshot.bin.zst https://snapshots.eosnation.io/jungle4-v8/latest
-   zstd -d latest-snapshot.bin.zst -o latest-snapshot.bin
+   wget -O latest-snapshot.bin.zst https://jungletestnet.io/snapshots/latest-snapshot.bin.zst
+   wget -O latest-snapshot.bin.zst.sha256 https://jungletestnet.io/snapshots/latest-snapshot.bin.zst.sha256
+   sha256sum -c latest-snapshot.bin.zst.sha256
+   zstd -d -f latest-snapshot.bin.zst -o latest-snapshot.bin
    ```
+   Alternative source: EOS Nation, `wget -O latest-snapshot.bin.zst https://snapshots.eosnation.io/jungle4-v8/latest` (no checksum file).  
+
    Start `start.sh` script with options `--delete-all-blocks` (removes old blocks and state, a snapshot can only be loaded into an empty state) and `--snapshot` with snapshot file path  
    ```
    cd /opt/Jungle4Testnet
@@ -231,6 +236,7 @@ https://jungle4.cryptolions.io/v2/explore
 --------------  
 
 # Snapshots
+  * [Jungle4 daily snapshots by CryptoLions](https://jungletestnet.io/snapshots/) (latest: https://jungletestnet.io/snapshots/latest-snapshot.bin.zst)
   * [EOS Nation Jungle4 snapshots](https://snapshots.eosnation.io/) (latest: https://snapshots.eosnation.io/jungle4-v8/latest)
 
 --------------
