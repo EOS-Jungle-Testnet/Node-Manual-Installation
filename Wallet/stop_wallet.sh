@@ -17,7 +17,7 @@ DIR="/opt/Jungle4Testnet/Wallet"
         kill $pid
         rm -r $DIR"/wallet.pid"
 
-        echo -ne "Stoping Wallet"
+        echo -ne "Stopping Wallet"
 
         while true; do
             [ ! -d "/proc/$pid/fd" ] && break
