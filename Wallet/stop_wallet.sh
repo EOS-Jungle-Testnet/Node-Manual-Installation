@@ -11,11 +11,11 @@
 
 DIR="$(cd "$(dirname "$0")" && pwd)"   # the Wallet folder this script is in
 
-    if [ -f $DIR"/wallet.pid" ]; then
-        pid=$(cat $DIR"/wallet.pid")
+    if [ -f "$DIR/wallet.pid" ]; then
+        pid=$(cat "$DIR/wallet.pid")
         echo $pid
         kill $pid
-        rm -r $DIR"/wallet.pid"
+        rm -r "$DIR/wallet.pid"
 
         echo -ne "Stopping Wallet"
 

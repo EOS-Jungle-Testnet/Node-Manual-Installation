@@ -67,7 +67,7 @@ To upgrade a precompiled installation: install the new .deb as in 1.2 A, copy th
     ln -sfn /opt/Jungle4Testnet/bin/v1.2.2 /opt/Jungle4Testnet/bin/bin
 ```
 
-- The node folder can be anywhere: the scripts find their own folder. The commands here use `/opt/Jungle4Testnet`.
+- The node folder can be anywhere, as long as its path has no spaces (nodeos and keosd reject such paths). The scripts find their own folder. The commands here use `/opt/Jungle4Testnet`.
 
 - Create `config.ini` with `configure.sh`. It asks for:
   - the node type: full node or block producer;

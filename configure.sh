@@ -39,6 +39,7 @@ backup() { # copy a file to FILE.bak-<time>, never over an older backup
 	local b="$1.bak-$(date +%Y%m%d-%H%M%S)" n=1
 	while [ -e "$b" ]; do b="$1.bak-$(date +%Y%m%d-%H%M%S)-$n"; n=$((n + 1)); done
 	cp -p "$1" "$b"
+	chmod 600 "$b"   # config.ini and keys.txt can hold private keys
 }
 ask() { # variable, question, default
 	local answer=""
@@ -68,6 +69,7 @@ while [ $# -gt 0 ]; do
 done
 
 [ -f "$TEMPLATE" ] || die "$TEMPLATE not found"
+case "$DIR" in *[[:space:]]*) die "the node folder path has a space in it ($DIR); nodeos and keosd reject such paths, use a folder without spaces" ;; esac
 [ ! -e "$CONFIG" ] || [ "$FORCE" = 1 ] || die "config.ini already exists; run with --force to replace it (a backup is kept)"
 
 # node type
@@ -76,7 +78,7 @@ case "$TYPE" in full|bp) ;; *) die "--type must be full or bp, not '$TYPE'" ;; e
 
 # p2p-server-address
 if [ -z "$P2P" ]; then
-	guess=$(ip -4 route get 1.1.1.1 2>/dev/null | awk '{for (i = 1; i < NF; i++) if ($i == "src") print $(i + 1)}')
+	guess=$(ip -4 route get 1.1.1.1 2>/dev/null | awk '{for (i = 1; i < NF; i++) if ($i == "src") print $(i + 1)}') || guess=""
 	ask P2P "Public IP or hostname other nodes use to reach this node" "$guess"
 fi
 [ -n "$P2P" ] || die "the p2p address is required"
@@ -104,12 +106,15 @@ if [ "$TYPE" = bp ]; then
 		BLS="$(awk -F': ' '/Public key/ {print $2}' <<<"$b")=KEY:$(awk -F': ' '/Private key/ {print $2}' <<<"$b")"
 		POP=$(awk -F': ' '/Proof of Possession/ {print $2}' <<<"$b")
 		[ ! -e "$KEYS" ] || backup "$KEYS"
-		( umask 077
-		  { echo "# Jungle4 keys for $BPNAME, created by configure.sh on $(date -u +%FT%TZ). Keep a copy somewhere safe."
-		    echo "# Signing key: the public key goes into regproducer."
-		    echo "$k"
-		    echo "# Finalizer (BLS) key: the public key and the Proof of Possession go into regfinkey."
-		    echo "$b"; } > "$KEYS" )
+		# mktemp creates the file 0600; renaming it replaces keys.txt whatever its old mode was
+		ktmp=$(mktemp "$DIR/.keys.txt.XXXXXX")
+		{ echo "# Jungle4 keys for $BPNAME, created by configure.sh on $(date -u +%FT%TZ). Keep a copy somewhere safe."
+		  echo "# Signing key: the public key goes into regproducer."
+		  echo "$k"
+		  echo "# Finalizer (BLS) key: the public key and the Proof of Possession go into regfinkey."
+		  echo "$b"; } > "$ktmp"
+		chmod 600 "$ktmp"
+		mv -f "$ktmp" "$KEYS"
 	else
 		[ -n "$SIGN" ] || ask_secret SIGN "Signing key pair (PUB=KEY:PRIV)"
 		[ -n "$BLS" ] || ask_secret BLS "Finalizer key pair (PUB_BLS_...=KEY:PVT_BLS_...)"

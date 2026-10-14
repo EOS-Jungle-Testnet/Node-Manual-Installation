@@ -20,3 +20,4 @@
 /.config.ini.*
 /keys.txt
 /keys.txt.bak-*
+/.keys.txt.*

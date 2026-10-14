@@ -16,4 +16,4 @@ NODE="http://127.0.0.1:8888"
 
 
 
-$NODEOSBINDIR/cleos -u $NODE --wallet-url $WALLET "$@"
+"$NODEOSBINDIR/cleos" -u $NODE --wallet-url $WALLET "$@"
