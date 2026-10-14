@@ -49,6 +49,29 @@ B. A copy of these binaries is kept inside the node folder, one folder per versi
 # 2.1 Update binaries  
 To upgrade a precompiled installation: install the new .deb as in 1.2 A, copy the binaries into a new `bin/vX.Y.Z` folder and repoint `bin/bin` as in section 3, then restart the node (`./start.sh`).  
 
+# 2.2 Update the node folder (scripts)
+To get later changes to the scripts and this guide:
+```
+cd /opt/Jungle4Testnet
+git pull
+```
+
+**If your node folder was installed before 2026-10-14**, update it once by hand. Two things changed:
+- `config.ini` is no longer tracked by git. With your edited copy in the folder, `git pull` refuses to run.
+- the binaries moved from `/opt/bin` into the node folder.
+```
+cd /opt/Jungle4Testnet
+./stop.sh
+cp config.ini config.ini.mine && git checkout -- config.ini && git pull && mv config.ini.mine config.ini
+mv /opt/bin /opt/Jungle4Testnet/bin
+ln -sfn /opt/Jungle4Testnet/bin/v1.2.2 /opt/Jungle4Testnet/bin/bin
+chmod 600 config.ini
+./start.sh
+```
+- **Version folder:** use your current version instead of `v1.2.2` (`ls /opt/bin`).
+- **Moving `/opt/bin`:** only if this guide created it and nothing else uses it. Otherwise copy just your version folder into `/opt/Jungle4Testnet/bin/`.
+- **`chmod 600`:** matters on a BP, where `config.ini` holds your keys.
+
 ------------------------------------------------------------------  
 
 # 3. Install Jungle4.0 Testnet node [manual]  
