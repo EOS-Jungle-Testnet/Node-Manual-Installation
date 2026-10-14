@@ -9,7 +9,7 @@
 #
 ###############################################################################
 
-NODEOSBINDIR="/opt/bin/bin"
+NODEOSBINDIR="/opt/Jungle4Testnet/bin/bin"
 
 WALLET="http://127.0.0.1:3000"
 NODE="http://127.0.0.1:8888"
