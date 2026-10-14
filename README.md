@@ -3,7 +3,7 @@
 Chain ID: 73e4385a2708e6d7048834fbc1079f2fabb17b3c125b146af438971e90716c4d  
 Based on tag: v1.2.2  
 
-Please join out Jungle testnet <a target="_blank" href="https://t.me/jungletestnet">Telegram channel</a>  
+Please join our Jungle testnet <a target="_blank" href="https://t.me/jungletestnet">Telegram channel</a>  
 Network Monitor: https://monitor4.jungletestnet.io/  
 
 
@@ -22,9 +22,9 @@ To start a Jungle 4 node you need install AntelopeIO Spring software. You can co
 A. Create folder, download sources, compile and install:  
 
 ## Complete instruction  
- * [Instruction](https://github.com/AntelopeIO/spring?tab=readme-ov-file#pinned-build)
+ * [Instruction](https://github.com/AntelopeIO/spring?tab=readme-ov-file#pinned-reproducible-build)
 
-If you use pinned-build you can got to next step 1.2  
+If you use pinned-build you can go to the next step 1.2  
 
 
 # 1.2 Spring - installing from precompiled binaries  
@@ -54,11 +54,11 @@ So /opt/bin/bin will be point to latest binaries
 
 ---------------------------------------------------------  
 # 2. Update Spring software to new version  
- * [Instruction](https://github.com/AntelopeIO/spring?tab=readme-ov-file#pinned-build)
+ * [Instruction](https://github.com/AntelopeIO/spring?tab=readme-ov-file#pinned-reproducible-build)
 
 
 # 2.1 Update binaries  
-To upgrade precompiled installation pleasse folow the same steps as in 1.2 (Installation from precompiled)  
+To upgrade precompiled installation please follow the same steps as in 1.2 (Installation from precompiled)  
 
 ------------------------------------------------------------------  
 
@@ -73,7 +73,7 @@ To upgrade precompiled installation pleasse folow the same steps as in 1.2 (Inst
 
 - In case you use a different data-dir folders -> edit all paths in files cleos.sh, start.sh, stop.sh, config.ini, Wallet/start_wallet.sh, Wallet/stop_wallet.sh  
 
-- Choose your producer name (12 symbols length only,  a-z 1-5 alowed only) and create own EOS key pair  
+- Choose your producer name (12 symbols length only,  a-z 1-5 allowed only) and create own EOS key pair  
   you can create key pair using cleos command  
   `./cleos.sh create key --to-console`  
 
@@ -81,14 +81,14 @@ To upgrade precompiled installation pleasse folow the same steps as in 1.2 (Inst
 - If non BP node: use the same config, just comment out rows with producer-name and both signature-provider rows  
   
 - Edit config.ini:  
-  - server address: p2p-server-address = ENRT_YOUR_NODE_EXTERNAL_IP_ADDRESS:9876  
+  - server address: p2p-server-address = YOUR_NODE_EXTERNAL_IP_ADDRESS:9876  
 
   - if BP: your producer name: producer-name = YOUR_BP_NAME  
   - if BP: add producer keypair for signing blocks (this pub key should be used in regproducer action):  
   signature-provider = YOUR_PUB_KEY_HERE=KEY:YOUR_PRIV_KEY_HERE  
   - if BP: add your finalizer (BLS) keypair, see [3.1 Register finalizer key](#31-bp-register-finalizer-key-savanna):  
   signature-provider = YOUR_PUB_BLS_KEY_HERE=KEY:YOUR_PRIV_BLS_KEY_HERE  
-  - replace p2p-peer-address list with fresh generated on monitor site: http://monitor4.jungletestnet.io/#p2p  
+  - p2p-peer-address: config.ini has the list of public peers as of 2026-10-14. If your node can't find peers, refresh it from the monitor: https://monitor4.jungletestnet.io/#p2p  
   - Check chain-state-db-size-mb value in config, it should be not bigger than you have RAM:  
     chain-state-db-size-mb = 16384  
   
@@ -128,13 +128,13 @@ Enter your private key
 
 
 
-- Check if you can access you node using link http://you_server:8888/v1/chain/get_info (<a href="http://jungle4.cryptolions.io/v1/chain/get_info" target="_blank">Example</a>)  
+- Check if you can access your node using link http://your_server:8888/v1/chain/get_info (<a href="http://jungle4.cryptolions.io/v1/chain/get_info" target="_blank">Example</a>)  
 
 
 - If you would like to run a BP node you need register your node at Jungle4.0 Testnet monitor  
     http://monitor4.jungletestnet.io/#register  
-    * In registartion form - PIN is your password to node information updates  
-    After registration is complete - personal intallation script will be created for you. Skip this step in case of manual installation.  
+    * In registration form - PIN is your password to node information updates  
+    After registration is complete - personal installation script will be created for you. Skip this step in case of manual installation.  
 
 # 3.1 BP: Register finalizer key (Savanna)  
 Jungle4 runs Savanna consensus. A BP without an active finalizer key is **skipped** when the producer schedule is built, even if it has enough votes to be in top 21.  
@@ -164,13 +164,18 @@ D. Check that the key is active:
 ==============================================================================================  
 
 # 4. Start/Restore from Snapshot
-   Download the latest snapshot (provided by EOS Nation) to snapshots folder in your **NODE** directory and unpack it (`apt install zstd` if needed):  
+   Download the latest snapshot to snapshots folder in your **NODE** directory, check it and unpack it (`apt install zstd` if needed).  
+   A new snapshot is published every day at ~03:15 UTC at https://jungletestnet.io/snapshots/ (the last 3 days are kept):  
    ```
    mkdir -p /opt/Jungle4Testnet/snapshots
    cd /opt/Jungle4Testnet/snapshots/
-   wget -O latest-snapshot.bin.zst https://snapshots.eosnation.io/jungle4-v8/latest
-   zstd -d latest-snapshot.bin.zst -o latest-snapshot.bin
+   wget -O latest-snapshot.bin.zst https://jungletestnet.io/snapshots/latest-snapshot.bin.zst
+   wget -O latest-snapshot.bin.zst.sha256 https://jungletestnet.io/snapshots/latest-snapshot.bin.zst.sha256
+   sha256sum -c latest-snapshot.bin.zst.sha256
+   zstd -d -f latest-snapshot.bin.zst -o latest-snapshot.bin
    ```
+   Alternative source: EOS Nation, `wget -O latest-snapshot.bin.zst https://snapshots.eosnation.io/jungle4-v8/latest` (no checksum file).  
+
    Start `start.sh` script with options `--delete-all-blocks` (removes old blocks and state, a snapshot can only be loaded into an empty state) and `--snapshot` with snapshot file path  
    ```
    cd /opt/Jungle4Testnet
@@ -179,7 +184,7 @@ D. Check that the key is active:
    Next restarts are just `./start.sh`  
  ---
 
-# 5. Usefull Information  
+# 5. Useful Information  
   
 # Jungle 4.0 Faucet - get free EOS Jungle tokens:  
   https://monitor4.jungletestnet.io/#faucet  
@@ -204,7 +209,7 @@ Get Balance
 ```
 Create account  
 ```
-./cleos.sh system newaccount --stake-net "10.0000 EOS" --stake-cpu "10.0000 EOS" --buy-ram-bytes 4096 <your accountr> <new account> <pkey1> <pkey2>
+./cleos.sh system newaccount --stake-net "10.0000 EOS" --stake-cpu "10.0000 EOS" --buy-ram-bytes 4096 <your account> <new account> <pkey1> <pkey2>
 ```  
 List registered producers (-l <limit>)  
 ```
@@ -231,6 +236,7 @@ https://jungle4.cryptolions.io/v2/explore
 --------------  
 
 # Snapshots
+  * [Jungle4 daily snapshots by CryptoLions](https://jungletestnet.io/snapshots/) (latest: https://jungletestnet.io/snapshots/latest-snapshot.bin.zst)
   * [EOS Nation Jungle4 snapshots](https://snapshots.eosnation.io/) (latest: https://snapshots.eosnation.io/jungle4-v8/latest)
 
 --------------

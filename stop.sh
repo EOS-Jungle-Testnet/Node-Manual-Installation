@@ -17,7 +17,7 @@ DIR="/opt/Jungle4Testnet"
 	kill $pid
 	
 
-	echo -ne "Stoping Nodeos"
+	echo -ne "Stopping Nodeos"
 
         while true; do
             [ ! -d "/proc/$pid/fd" ] && break
@@ -30,7 +30,7 @@ DIR="/opt/Jungle4Testnet"
         if [ ! -d $DIR/logs ]; then
             mkdir $DIR/logs
         fi
-        tar -pcvzf $DIR/logs/stderr-$DATE.txt.tar.gz stderr.txt stdout.txt
+        tar -pcvzf $DIR/logs/stderr-$DATE.txt.tar.gz -C $DIR stderr.txt stdout.txt
 
 
         echo -ne "\rNodeos Stopped.    \n"
